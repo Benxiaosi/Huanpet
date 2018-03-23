@@ -10,7 +10,7 @@ public interface NetWorkCallBack<T>{
     void onError(String error);
 
 
-    void onSuccess(T t);
+    void onSuccess(Object obj);
 
 
 }

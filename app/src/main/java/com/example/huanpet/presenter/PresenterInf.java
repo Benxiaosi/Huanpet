@@ -36,11 +36,10 @@ public class PresenterInf implements Persenter{
             loginView.LoginFailure();
         }
         @Override
-        public void onSuccess(UserInfo userInfo) {
+        public void onSuccess(Object obj) {
 
-            Log.e("TAG","登录请求结果解析====="+userInfo.toString());
 
-            loginView.LoginSuccess();
+            loginView.LoginSuccess(obj);
         }
     });
 

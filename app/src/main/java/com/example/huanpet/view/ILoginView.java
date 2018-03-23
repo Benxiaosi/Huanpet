@@ -7,7 +7,7 @@ package com.example.huanpet.view;
 public interface ILoginView {
 
 
-    void LoginSuccess();
+    void LoginSuccess(Object obj);
 
     void LoginFailure();
 
