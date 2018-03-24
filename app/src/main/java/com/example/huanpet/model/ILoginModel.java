@@ -2,7 +2,6 @@ package com.example.huanpet.model;
 
 
 
-import com.example.huanpet.model.bean.UserInfo;
 import com.example.huanpet.model.net.NetWorkCallBack;
 
 import java.util.Map;
@@ -13,7 +12,7 @@ import java.util.Map;
 
 public interface ILoginModel {
 
- void  saveUserInfo(UserInfo userInfo);
+ void  saveUserInfo(Object userInfo);
 
 
  <T> void   Login(String url, Map<String, String> map, NetWorkCallBack<T> callBack);

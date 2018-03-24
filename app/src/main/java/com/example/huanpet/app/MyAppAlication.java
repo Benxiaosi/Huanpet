@@ -2,8 +2,8 @@ package com.example.huanpet.app;
 
 import android.app.Application;
 
-import app.jiyun.com.testsqlitegd.DaoMaster;
-import app.jiyun.com.testsqlitegd.DaoSession;
+import com.example.huanpet.model.bean.DaoMaster;
+import com.example.huanpet.model.bean.DaoSession;
 
 
 /**
@@ -16,6 +16,7 @@ public class MyAppAlication extends Application{
 //    应用报错了额，    退出了  ，
 private static MyAppAlication mApp;
     private DaoSession mDaoSession;
+
     public static MyAppAlication getMyApp() {
         return mApp;
     }
@@ -25,6 +26,8 @@ private static MyAppAlication mApp;
     public void onCreate() {
         super.onCreate();
         mApp = this;
+//        AbAppConfig.UI_WIDTH = 1080;
+//        AbAppConfig.UI_HEIGHT = 700;
         createDataBase();
     }
 

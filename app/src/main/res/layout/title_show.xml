@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="99px"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="99px"
+        android:layout_height="match_parent"
+        android:layout_margin="10px"
+        android:background="@drawable/my" />
+
+    <TextView
+
+        android:id="@+id/back"
+        android:layout_width="99px"
+        android:layout_height="match_parent"
+        android:layout_margin="10px"
+        android:background="@drawable/title_bar_back"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="111"
+        android:textColor="#0e0e0e"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/sou"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="99px"
+            android:layout_height="match_parent"
+            android:layout_margin="10px"
+            android:background="@drawable/search" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="地区/街道/小区" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/determine"
+        android:layout_width="99px"
+        android:layout_height="match_parent"
+        android:layout_margin="10px"
+        android:gravity="center"
+        android:text="确定"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/map"
+        android:layout_width="99px"
+        android:layout_height="match_parent"
+        android:layout_margin="10px"
+        android:background="@drawable/map" />
+
+</LinearLayout>

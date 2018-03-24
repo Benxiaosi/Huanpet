@@ -2,7 +2,6 @@ package com.example.huanpet.model;
 
 
 
-import com.example.huanpet.model.bean.UserInfo;
 import com.example.huanpet.model.net.NetWorkCallBack;
 import com.example.huanpet.model.net.OkHttpUtils;
 
@@ -15,7 +14,7 @@ import java.util.Map;
 public class Model implements ILoginModel{
 
     @Override
-    public void saveUserInfo(UserInfo userInfo) {
+    public void saveUserInfo(Object userInfo) {
 
 
 //        s
