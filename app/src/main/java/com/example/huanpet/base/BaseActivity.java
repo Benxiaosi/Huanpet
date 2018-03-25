@@ -1,24 +1,33 @@
 package com.example.huanpet.base;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.huanpet.R;
+import com.example.huanpet.view.activity.MapActivity;
+import com.example.huanpet.view.activity.ScreenActivity;
 
 /**
  * Created by Administrator on 2018/3/2.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView user;
     private TextView back;
     private TextView title;
@@ -26,6 +35,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private TextView determine;
     private TextView map;
     private FrameLayout layout_content;
+    private EditText ed_sou;
 
 //    模板模式
 
@@ -38,10 +48,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         setContentView(getlayoutID());
 
-
         //设置屏幕适配
         setScreenAdaptation();
 
+        setInvasion();
 
         initview();
 
@@ -57,7 +67,24 @@ public abstract class BaseActivity extends AppCompatActivity {
         sou = (LinearLayout) findViewById(R.id.sou);
         determine = (TextView) findViewById(R.id.determine);
         map = (TextView) findViewById(R.id.map);
+        ed_sou = (EditText) findViewById(R.id.ed_sou);
+        user.setOnClickListener(this);
+        back.setOnClickListener(this);
+        determine.setOnClickListener(this);
+        sou.setOnClickListener(this);
+        map.setOnClickListener(this);
         layout_content = (FrameLayout) findViewById(R.id.layout_content);
+    }
+
+    //获取EditText输入内容
+    public String getText() {
+        String s = ed_sou.getText().toString();
+        if (TextUtils.isEmpty(s)) {
+            Toast.makeText(this, "请输入内容", Toast.LENGTH_SHORT).show();
+            return "";
+        } else {
+            return s;
+        }
     }
 
     //是否显示个人图标
@@ -123,7 +150,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void setTitle(String str) {
         title.setText(str);
     }
-    //是否显示按钮
+
+    //设置确认按钮内容
+    public void setDetermine(int titleId) {
+        determine.setText(titleId);
+    }
+
+    public void setDetermine(String str) {
+        determine.setText(str);
+    }
+
+    //是否显示确认按钮
     protected void showDetermine(boolean show) {
         if (determine != null) {
             if (show) {
@@ -176,5 +213,90 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     public abstract int getlayoutID();
+
+    //取出FrameLayout并调用父类removeAllViews()方法
+    @Override
+    public void setContentView(int layoutResID) {
+        layout_content.removeAllViews();
+        View.inflate(this, layoutResID, layout_content);
+        onContentChanged();
+    }
+
+    @Override
+    public void setContentView(View view) {
+        layout_content.removeAllViews();
+        layout_content.addView(view);
+        onContentChanged();
+    }
+
+    /* (non-Javadoc)
+     * @see android.app.Activity#setContentView(android.view.View, android.view.ViewGroup.LayoutParams)
+     */
+    @Override
+    public void setContentView(View view, ViewGroup.LayoutParams params) {
+        layout_content.removeAllViews();
+        layout_content.addView(view, params);
+        onContentChanged();
+    }
+
+    //嵌入状态栏
+    private void setInvasion() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            // 透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            // 透明导航栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
+    }
+
+    //点击监听
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            //点击跳转地图Activity
+            case R.id.map:
+                intentMap();
+                break;
+            //点击弹出侧滑菜单
+            case R.id.user:
+                intentUser();
+                break;
+            //跳转到筛选Activity
+            case R.id.sou:
+                intentSou();
+                break;
+            //返回按钮
+            case R.id.back:
+                finish();
+                break;
+            //确定按钮
+            case R.id.determine:
+                doDetermine();
+                break;
+
+        }
+
+    }
+
+    //确定方法
+    protected abstract void doDetermine();
+
+    //跳转地图Activity方法
+    protected void intentMap() {
+        Intent intent = new Intent(this, MapActivity.class);
+        startActivity(intent);
+    }
+
+
+    //跳转筛选Activity方法
+    protected void intentSou() {
+        Intent intent = new Intent(this, ScreenActivity.class);
+        startActivity(intent);
+    }
+
+
+    //弹出侧滑菜单方法
+    protected abstract void intentUser();
+
 
 }

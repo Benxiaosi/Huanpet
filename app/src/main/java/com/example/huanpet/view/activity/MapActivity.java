@@ -1,18 +1,12 @@
-package com.example.huanpet;
-/**
- * 动画界面
- */
+package com.example.huanpet.view.activity;
 
-import com.example.huanpet.base.BaseActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.view.View;
-import android.widget.RelativeLayout;
 
+import com.example.huanpet.R;
 import com.example.huanpet.base.BaseActivity;
 
-public class AnimationActivity extends BaseActivity {
-
+public class MapActivity extends BaseActivity {
 
     @Override
     protected void initData() {
@@ -26,7 +20,7 @@ public class AnimationActivity extends BaseActivity {
 
     @Override
     public int getlayoutID() {
-        return R.layout.activity_main;
+        return R.layout.activity_map;
     }
 
     @Override
@@ -38,6 +32,4 @@ public class AnimationActivity extends BaseActivity {
     protected void intentUser() {
 
     }
-
-
 }

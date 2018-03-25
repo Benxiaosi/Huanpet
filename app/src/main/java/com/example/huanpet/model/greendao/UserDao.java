@@ -14,12 +14,16 @@ public class UserDao {
     private String username;
     private String phone;
     private String usernumber;
-    @Generated(hash = 945400735)
-    public UserDao(Long id, String username, String phone, String usernumber) {
+    //是否是饲养家
+    private Boolean isFoster;
+    @Generated(hash = 1638511927)
+    public UserDao(Long id, String username, String phone, String usernumber,
+            Boolean isFoster) {
         this.id = id;
         this.username = username;
         this.phone = phone;
         this.usernumber = usernumber;
+        this.isFoster = isFoster;
     }
     @Generated(hash = 917059161)
     public UserDao() {
@@ -48,6 +52,13 @@ public class UserDao {
     public void setUsernumber(String usernumber) {
         this.usernumber = usernumber;
     }
+    public Boolean getIsFoster() {
+        return this.isFoster;
+    }
+    public void setIsFoster(Boolean isFoster) {
+        this.isFoster = isFoster;
+    }
+
 
    
 }
