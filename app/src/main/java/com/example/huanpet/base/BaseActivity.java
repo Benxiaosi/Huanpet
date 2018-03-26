@@ -6,8 +6,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amap.api.services.core.LatLonPoint;
+import com.amap.api.services.geocoder.GeocodeAddress;
+import com.amap.api.services.geocoder.GeocodeQuery;
+import com.amap.api.services.geocoder.GeocodeResult;
+import com.amap.api.services.geocoder.GeocodeSearch;
+import com.amap.api.services.geocoder.RegeocodeResult;
 import com.example.huanpet.R;
 import com.example.huanpet.view.activity.map.MapActivity;
 import com.example.huanpet.view.activity.screen.ScreenActivity;
@@ -36,7 +45,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     private TextView map;
     private FrameLayout layout_content;
     private EditText ed_sou;
-
+    private LatLonPoint mEndLat;
+    private GeocodeSearch mEnd;
 //    模板模式
 
     //都会有一些相同的操作     findviewbyid
@@ -74,6 +84,49 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         sou.setOnClickListener(this);
         map.setOnClickListener(this);
         layout_content = (FrameLayout) findViewById(R.id.layout_content);
+        mEnd = new GeocodeSearch(this);
+        ed_sou.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = getText();
+                setTitleToShare(text);
+            }
+        });
+    }
+
+    //通过地名获取经纬度，保存在Share
+    public void setTitleToShare(String title) {
+        GeocodeQuery query = new GeocodeQuery(title, null);
+        mEnd.getFromLocationNameAsyn(query);
+        mEnd.setOnGeocodeSearchListener(new GeocodeSearch.OnGeocodeSearchListener() {
+            @Override
+            public void onRegeocodeSearched(RegeocodeResult regeocodeResult, int i) {
+
+            }
+
+            @Override
+            public void onGeocodeSearched(GeocodeResult geocodeResult, int i) {
+                GeocodeAddress geocodeAddress = geocodeResult.getGeocodeAddressList().get(0);
+                mEndLat = geocodeAddress.getLatLonPoint();
+                Log.e("看看结尾经纬度", "经度是：" + mEndLat.getLongitude() + ",纬度是：" + mEndLat.getLatitude());
+                //精度
+                getEditor().putString("longitude", mEndLat.getLongitude() + "").commit();
+                //纬度
+                getEditor().putString("latitude", mEndLat.getLatitude() + "").commit();
+
+
+            }
+        });
     }
 
     //获取EditText输入内容
@@ -261,10 +314,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             case R.id.user:
                 intentUser();
                 break;
-            //跳转到筛选Activity
-            case R.id.sou:
-                intentSou();
-                break;
             //返回按钮
             case R.id.back:
                 finish();
@@ -289,10 +338,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
 
     //跳转筛选Activity方法
-    protected void intentSou() {
-        Intent intent = new Intent(this, ScreenActivity.class);
-        startActivity(intent);
-    }
+//    protected void intentSou() {
+//        Intent intent = new Intent(this, ScreenActivity.class);
+//        startActivity(intent);
+//    }
 
 
     //弹出侧滑菜单方法
