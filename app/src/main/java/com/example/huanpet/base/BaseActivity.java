@@ -199,7 +199,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public void setTitle(int titleId) {
         title.setText(titleId);
     }
-
+    //
     public void setTitle(String str) {
         title.setText(str);
     }
