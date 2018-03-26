@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.huanpet.view.activity.map.MapActivity">
+    tools:context="com.example.huanpet.view.activity.animation.ShowActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/pager02" />
 </android.support.constraint.ConstraintLayout>

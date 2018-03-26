@@ -1,4 +1,4 @@
-package com.example.huanpet.view.activity;
+package com.example.huanpet.view.activity.map;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.example.huanpet.R;
 import com.example.huanpet.base.BaseActivity;
 
-public class ScreenActivity extends BaseActivity {
+public class MapActivity extends BaseActivity {
 
     @Override
     protected void initData() {
@@ -15,12 +15,18 @@ public class ScreenActivity extends BaseActivity {
 
     @Override
     protected void initview() {
-
+        showBack(true);
+        showTitle(true);
+        setTitle("城市选择");
+        showDetermine(true);
+        showSouText(false);
+        showMap(false);
+        showUser(false);
     }
 
     @Override
     public int getlayoutID() {
-        return R.layout.activity_screen;
+        return R.layout.activity_map;
     }
 
     @Override

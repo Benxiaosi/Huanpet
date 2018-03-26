@@ -20,8 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.huanpet.R;
-import com.example.huanpet.view.activity.MapActivity;
-import com.example.huanpet.view.activity.ScreenActivity;
+import com.example.huanpet.view.activity.map.MapActivity;
+import com.example.huanpet.view.activity.screen.ScreenActivity;
 
 /**
  * Created by Administrator on 2018/3/2.
