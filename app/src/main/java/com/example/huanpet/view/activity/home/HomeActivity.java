@@ -7,7 +7,9 @@ import android.widget.Switch;
 
 import com.example.huanpet.R;
 import com.example.huanpet.base.BaseActivity;
-
+/**
+ * 首页
+ */
 public class HomeActivity extends BaseActivity {
 
 
