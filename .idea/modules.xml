@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+
+      <module fileurl="file://E:\DaShiXunDaiMa\Huanpet2\Huanpet.iml" filepath="E:\DaShiXunDaiMa\Huanpet2\Huanpet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Huanpet2.iml" filepath="$PROJECT_DIR$/Huanpet2.iml" />
+
       <module fileurl="file://$PROJECT_DIR$/Huanpet.iml" filepath="$PROJECT_DIR$/Huanpet.iml" />
       <module fileurl="file://D:\aa\Huanpet\Huanpet.iml" filepath="D:\aa\Huanpet\Huanpet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
