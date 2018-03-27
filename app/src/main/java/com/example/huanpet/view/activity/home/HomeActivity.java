@@ -156,6 +156,9 @@ public class HomeActivity extends BaseActivity {
         bodyMap.put( "coordY", share.getString( "longitude", "116.46" ) );
 
         OkHttpUtls.getInstance().getOk( url, headMap, bodyMap );
+
+
+
     }
 
     public void animalJT() {
