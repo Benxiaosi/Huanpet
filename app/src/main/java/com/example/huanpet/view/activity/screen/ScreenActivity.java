@@ -12,13 +12,13 @@ import android.widget.Toast;
 
 import com.example.huanpet.R;
 import com.example.huanpet.base.BaseActivity;
-import com.example.huanpet.view.activity.screen.city.adapter.CityAdapter;
-import com.example.huanpet.view.activity.screen.city.adapter.SortAdapter;
-import com.example.huanpet.view.activity.screen.city.view.CitySortModel;
-import com.example.huanpet.view.activity.screen.city.view.EditTextWithDel;
-import com.example.huanpet.view.activity.screen.city.view.PinyinComparator;
-import com.example.huanpet.view.activity.screen.city.view.PinyinUtils;
-import com.example.huanpet.view.activity.screen.city.view.SideBar;
+import com.example.huanpet.view.activity.screen.adapter.CityAdapter;
+import com.example.huanpet.view.activity.screen.adapter.SortAdapter;
+import com.example.huanpet.view.activity.screen.view.CitySortModel;
+import com.example.huanpet.view.activity.screen.view.EditTextWithDel;
+import com.example.huanpet.view.activity.screen.view.PinyinComparator;
+import com.example.huanpet.view.activity.screen.view.PinyinUtils;
+import com.example.huanpet.view.activity.screen.view.SideBar;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -62,7 +62,7 @@ public class ScreenActivity extends BaseActivity {
     @Override
     public int getlayoutID() {
 
-        return R.layout.Screen_activity;
+        return R.layout.activity_screen;
     }
 
     @Override
