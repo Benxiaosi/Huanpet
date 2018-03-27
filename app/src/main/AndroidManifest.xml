@@ -40,7 +40,6 @@
             android:value="919c2b2871cfc0b7646bbede3dc87930">
           <!--  //开发者申请的key-->
         </meta-data>
-
     </application>
 
 </manifest>
