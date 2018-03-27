@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:id="@+id/lin"
     >
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recy_home_Page"
         android:layout_width="match_parent"
