@@ -1,9 +1,6 @@
 package com.example.huanpet.view.activity.home;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Switch;
 
 import com.example.huanpet.R;
 import com.example.huanpet.base.BaseActivity;
@@ -11,7 +8,6 @@ import com.example.huanpet.base.BaseActivity;
  * 首页
  */
 public class HomeActivity extends BaseActivity {
-
 
     @Override
     protected void initData() {
