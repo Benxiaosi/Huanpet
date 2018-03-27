@@ -30,7 +30,6 @@ import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeResult;
 import com.example.huanpet.R;
 import com.example.huanpet.view.activity.map.MapActivity;
-import com.example.huanpet.view.activity.screen.ScreenActivity;
 
 /**
  * Created by Administrator on 2018/3/2.
