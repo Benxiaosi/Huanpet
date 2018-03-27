@@ -35,10 +35,15 @@
         <activity android:name=".view.activity.animation.ShowActivity" />
         <activity android:name=".view.activity.home.HomeActivity"></activity>
 
-        <meta-data
+      <!-- <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="6c5df883e927ab4d7c52cec469139cfc">
-            //开发者申请的key
+          &lt;!&ndash;  //开发者申请的key 919c2b2871cfc0b7646bbede3dc87930&ndash;&gt;
+        </meta-data>-->
+       <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="919c2b2871cfc0b7646bbede3dc87930">
+          <!--  //开发者申请的key-->
         </meta-data>
     </application>
 

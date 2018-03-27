@@ -118,6 +118,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             public void onGeocodeSearched(GeocodeResult geocodeResult, int i) {
                 GeocodeAddress geocodeAddress = geocodeResult.getGeocodeAddressList().get(0);
                 mEndLat = geocodeAddress.getLatLonPoint();
+
                 Log.e("看看结尾经纬度", "经度是：" + mEndLat.getLongitude() + ",纬度是：" + mEndLat.getLatitude());
                 //精度
                 getEditor().putString("longitude", mEndLat.getLongitude() + "").commit();
@@ -338,10 +339,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
 
     //跳转筛选Activity方法
-//    protected void intentSou() {
-//        Intent intent = new Intent(this, ScreenActivity.class);
-//        startActivity(intent);
-//    }
+   protected void intentSou() {
+        Intent intent = new Intent(this, ScreenActivity.class);
+        startActivity(intent);
+   }
 
 
     //弹出侧滑菜单方法
