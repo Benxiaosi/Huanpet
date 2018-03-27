@@ -39,10 +39,16 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="6c5df883e927ab4d7c52cec469139cfc">
-            //开发者申请的key
-        </meta-data>
+            //开发者申请的key</meta-data>
 
-
+        <activity android:name=".view.activity.need.NeedActivity" />
+        <activity android:name=".view.activity.news.NewsActivity" />
+        <activity android:name=".view.activity.order.OrderActivity" />
+        <activity android:name=".view.activity.pet.PetActivity" />
+        <activity android:name=".view.activity.setting.SettingActivity" />
+        <activity android:name=".view.activity.wallet.WalletActivity" />
+        <activity android:name=".view.activity.login.LoginActivity" />
+        <activity android:name=".view.activity.user.UserActivity" />
+        <activity android:name=".view.activity.login.RegistActivity"></activity>
     </application>
-
 </manifest>

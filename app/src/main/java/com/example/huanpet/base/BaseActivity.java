@@ -46,6 +46,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     private EditText ed_sou;
     private LatLonPoint mEndLat;
     private GeocodeSearch mEnd;
+    private LinearLayout liner;
+    private LinearLayout base_lin;
 //    模板模式
 
     //都会有一些相同的操作     findviewbyid
@@ -82,6 +84,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         determine.setOnClickListener(this);
         sou.setOnClickListener(this);
         map.setOnClickListener(this);
+        liner = (LinearLayout) findViewById(R.id.liner);
+        base_lin = (LinearLayout) findViewById(R.id.base_lin);
         layout_content = (FrameLayout) findViewById(R.id.layout_content);
         mEnd = new GeocodeSearch(this);
         ed_sou.addTextChangedListener(new TextWatcher() {
@@ -161,6 +165,17 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         } // else ignored
     }
 
+    //是否显示标题框
+    protected void showTitleText(boolean show) {
+        if (liner != null) {
+            if (show) {
+                liner.setVisibility(View.VISIBLE);
+            } else {
+                liner.setVisibility(View.GONE);
+            }
+        } // else ignored
+    }
+
     //是否显示返回键
     protected void showBack(boolean show) {
         if (back != null) {
@@ -198,6 +213,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public void setTitle(int titleId) {
         title.setText(titleId);
     }
+
     //
     public void setTitle(String str) {
         title.setText(str);
@@ -346,5 +362,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     //弹出侧滑菜单方法
     protected abstract void intentUser();
 
-
+    //设置背景颜色
+    public void setBackGround(int drawable) {
+        base_lin.setBackgroundResource(drawable);
+    }
 }
