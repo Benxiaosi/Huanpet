@@ -26,7 +26,6 @@ import java.text.SimpleDateFormat;
 
 //监听定位和定位变化
 public class MapActivity extends BaseActivity implements LocationSource, AMapLocationListener {
-
     //显示地图需要的变量
     private MapView mapView;//地图控件
     private AMap aMap;//地图对象
