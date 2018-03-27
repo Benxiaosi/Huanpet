@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.huanpet">
-    <!--允许程序打开网络套接字-->
+
+    <!-- 允许程序打开网络套接字 -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--允许程序设置内置sd卡的写权限-->
+    <!-- 允许程序设置内置sd卡的写权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--允许程序获取网络状态-->
+    <!-- 允许程序获取网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--允许程序访问WiFi网络信息-->
+    <!-- 允许程序访问WiFi网络信息 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--允许程序读写手机状态和身份-->
+    <!-- 允许程序读写手机状态和身份 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -36,11 +37,26 @@
         <activity android:name=".view.activity.home.HomeActivity"></activity>
        <meta-data
 
+        <activity android:name=".view.activity.home.HomeActivity" />
             android:name="com.amap.api.v2.apikey"
             android:value="919c2b2871cfc0b7646bbede3dc87930">
+      
           <!--  //开发者申请的key-->
         </meta-data>
 
     </application>
 
+            android:value="6c5df883e927ab4d7c52cec469139cfc">
+            //开发者申请的key</meta-data>
+
+        <activity android:name=".view.activity.need.NeedActivity" />
+        <activity android:name=".view.activity.news.NewsActivity" />
+        <activity android:name=".view.activity.order.OrderActivity" />
+        <activity android:name=".view.activity.pet.PetActivity" />
+        <activity android:name=".view.activity.setting.SettingActivity" />
+        <activity android:name=".view.activity.wallet.WalletActivity" />
+        <activity android:name=".view.activity.login.LoginActivity" />
+        <activity android:name=".view.activity.user.UserActivity" />
+        <activity android:name=".view.activity.login.RegistActivity"></activity>
+    </application>
 </manifest>
