@@ -94,7 +94,6 @@ public class MapActivity extends BaseActivity implements LocationSource, AMapLoc
         //确定按钮
         //showDetermine();
     }
-
     @Override
     public int getlayoutID() {
         return R.layout.activity_map;
