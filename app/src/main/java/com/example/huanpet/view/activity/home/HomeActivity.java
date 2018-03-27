@@ -95,9 +95,9 @@ public class HomeActivity extends BaseActivity {
         img3 = (ImageView) findViewById( R.id.img3 );
 
         shaixuan_homePage = (LinearLayout) findViewById( R.id.shaixuan_homePage );
-//        choice = (ImageView) findViewById( R.id.choice );
+        choice = (ImageView) findViewById( R.id.choice );
 
-//        choice.setOnClickListener( this );
+        choice.setOnClickListener( this );
         nearby_homePage.setOnClickListener( this );
         animal_homePage.setOnClickListener( this );
         screen_homePage.setOnClickListener( this );
@@ -130,27 +130,11 @@ public class HomeActivity extends BaseActivity {
             case R.id.animal_homePage:
                 animalJT();
                 break;
-//
             case R.id.screen_homePage:
-                View inflate = LayoutInflater.from( HomeActivity.this ).inflate( R.layout.item2_recy, null );
-//                View inflate1 = LayoutInflater.from( HomeActivity.this ).inflate( R.layout.popup_screen_homepage, null );
-
-                lin = (LinearLayout) inflate.findViewById( R.id.lin );
-                recy_home_Page1 = (RecyclerView) inflate.findViewById( R.id.recy_home_Page );
-
-//                shaixuan_homePage1 = (LinearLayout) inflate1.findViewById( R.id.sx );
-
-                if (aBoolean) {
-                    lin.setVisibility( View.GONE );
-                    shaixuan_homePage.setVisibility( View.VISIBLE );
-                    img3.setBackgroundResource( R.mipmap.up_arrow );
-                    aBoolean = false;
-                } else {
-                    lin.setVisibility( View.VISIBLE );
-                    shaixuan_homePage.setVisibility( View.GONE );
-                    img3.setBackgroundResource( R.mipmap.down_arrow );
-                    aBoolean = true;
-                }
+                shaixuanJT();
+                break;
+            case R.id.choice:
+                choiceJT();
                 break;
         }
     }
@@ -254,5 +238,29 @@ public class HomeActivity extends BaseActivity {
             recy_home_Page.setBackgroundResource( R.color.isfalse );
             aBoolean = true;
         }
+    }
+
+    public void shaixuanJT() {
+        View inflate = LayoutInflater.from( HomeActivity.this ).inflate( R.layout.item2_recy, null );
+
+        lin = (LinearLayout) inflate.findViewById( R.id.lin );
+        recy_home_Page1 = (RecyclerView) inflate.findViewById( R.id.recy_home_Page );
+
+
+        if (aBoolean) {
+            lin.setVisibility( View.GONE );
+            shaixuan_homePage.setVisibility( View.VISIBLE );
+            img3.setBackgroundResource( R.mipmap.up_arrow );
+            aBoolean = false;
+        } else {
+            lin.setVisibility( View.VISIBLE );
+            shaixuan_homePage.setVisibility( View.GONE );
+            img3.setBackgroundResource( R.mipmap.down_arrow );
+            aBoolean = true;
+        }
+    }
+    public void choiceJT(){
+        Intent intent = new Intent( HomeActivity.this, ScreenActivity.class );
+        startActivityForResult( intent,200 );
     }
 }
