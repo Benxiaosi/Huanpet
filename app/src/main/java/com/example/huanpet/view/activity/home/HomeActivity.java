@@ -1,6 +1,8 @@
 package com.example.huanpet.view.activity.home;
 
 
+import android.view.View;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.BitmapDrawable;
@@ -39,8 +41,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-
+import android.widget.TextView; 
 
 import com.example.huanpet.R;
 import com.example.huanpet.base.BaseActivity;
@@ -58,6 +59,7 @@ import com.example.huanpet.view.activity.wallet.WalletActivity;
  * 首页
  */
 public class HomeActivity extends BaseActivity {
+
 
 
 
@@ -99,6 +101,7 @@ public class HomeActivity extends BaseActivity {
 
     private View recyInflate1;
     private View listInflate;
+
 
     private FrameLayout v4_drawerlayout_frame;
     private LinearLayout v4_listview;

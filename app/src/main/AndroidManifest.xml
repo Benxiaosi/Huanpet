@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
+
     <application
         android:name=".app.MyAppAlication"
         android:allowBackup="true"
@@ -27,17 +28,24 @@
         <activity android:name=".view.activity.animation.AnimationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.screen.ScreenActivity" />
         <activity android:name=".view.activity.map.MapActivity" />
         <activity android:name=".view.activity.animation.ShowActivity" />
-        <activity android:name=".view.activity.home.HomeActivity" />
+        <activity android:name=".view.activity.home.HomeActivity"></activity>
+       <meta-data
 
-        <meta-data
+        <activity android:name=".view.activity.home.HomeActivity" />
             android:name="com.amap.api.v2.apikey"
+            android:value="919c2b2871cfc0b7646bbede3dc87930">
+      
+          <!--  //开发者申请的key-->
+        </meta-data>
+
+    </application>
+
             android:value="6c5df883e927ab4d7c52cec469139cfc">
             //开发者申请的key</meta-data>
 
