@@ -4,7 +4,10 @@
     <modules>
       <module fileurl="file://E:\Huanpet1\Huanpet.iml" filepath="E:\Huanpet1\Huanpet.iml" />
       <module fileurl="file://$PROJECT_DIR$/Huanpet1.iml" filepath="$PROJECT_DIR$/Huanpet1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Huanpet.iml" filepath="$PROJECT_DIR$/Huanpet.iml" />
+      <module fileurl="file://D:\aa\Huanpet\Huanpet.iml" filepath="D:\aa\Huanpet\Huanpet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://D:\aa\Huanpet\app\app.iml" filepath="D:\aa\Huanpet\app\app.iml" />
     </modules>
   </component>
 </project>

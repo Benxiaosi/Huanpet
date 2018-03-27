@@ -41,4 +41,5 @@ dependencies {
     compile 'com.amap.api:location:latest.integration'
     //搜索功能
     compile 'com.amap.api:search:latest.integration'
+    compile files('libs/pinyin4j-2.5.0.jar')
 }
