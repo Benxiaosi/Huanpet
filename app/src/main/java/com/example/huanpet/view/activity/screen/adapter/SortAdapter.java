@@ -39,7 +39,7 @@ public class SortAdapter extends BaseAdapter implements SectionIndexer {
     }
 
     public Object getItem(int position) {
-        return list.get(position);
+        return list.get(position-1);
     }
 
     public long getItemId(int position) {

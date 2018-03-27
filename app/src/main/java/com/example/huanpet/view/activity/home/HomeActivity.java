@@ -104,6 +104,7 @@ public class HomeActivity extends BaseActivity {
     private SharedPreferences share;
     private ImageView user_img;
     private TextView user_name;
+    private TextView city;
     private TextView user_phone;
     private TextView user_enter;
     private LinearLayout login;
@@ -177,7 +178,7 @@ public class HomeActivity extends BaseActivity {
         is_sure.setOnClickListener(this);
         news.setOnClickListener(this);
         order.setOnClickListener(this);
-
+        city = findViewById(R.id.location);
 
         recy_home_Page = (RecyclerView) findViewById(R.id.recy_home_Page);
 
@@ -289,7 +290,7 @@ public class HomeActivity extends BaseActivity {
         }
         if (shaixuan_homePage != null) {
             shaixuan_homePage.setVisibility(View.GONE);
-            aBoolean2=true;
+            aBoolean2 = true;
             img3.setBackgroundResource(R.mipmap.down_arrow);
         }
 
@@ -342,7 +343,7 @@ public class HomeActivity extends BaseActivity {
             }
             if (shaixuan_homePage != null) {
                 shaixuan_homePage.setVisibility(View.GONE);
-                aBoolean2=true;
+                aBoolean2 = true;
                 img3.setBackgroundResource(R.mipmap.down_arrow);
             }
 
@@ -414,6 +415,12 @@ public class HomeActivity extends BaseActivity {
         startActivityForResult(intent, 200);
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 200 && resultCode == 100) {
+            city.setText(data.getStringExtra("city"));
+        }
+    }
 }
 

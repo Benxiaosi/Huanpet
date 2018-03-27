@@ -1,5 +1,6 @@
 package com.example.huanpet.view.activity.screen;
 
+import android.content.Intent;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -103,10 +104,12 @@ public class ScreenActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-
                 Toast.makeText(getApplication(), ((CitySortModel) adapter.getItem(position)).getName(), Toast.LENGTH_SHORT).show();
                 setTitleToShare(((CitySortModel) adapter.getItem(position)).getName());
-
+                Intent intent = getIntent();
+                intent.putExtra("city",((CitySortModel) adapter.getItem(position)).getName());
+                setResult(100,intent);
+                finish();
 //                intent.setClass(MainActivity.this, SecondActivity.class);
 //                MainActivity.this.startActivity(intent);
             }
