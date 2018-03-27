@@ -2,6 +2,7 @@ package com.example.huanpet.view.activity.map;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -40,7 +41,6 @@ public class MapActivity extends BaseActivity implements LocationSource, AMapLoc
     private boolean isFirstLoc = true;
     private Bundle savedInstanceState;
     private SharedPreferences user;
-    private SharedPreferences mySharedPreferences;
     private StringBuffer buffer;
 
 
@@ -73,8 +73,7 @@ public class MapActivity extends BaseActivity implements LocationSource, AMapLoc
         myLocationStyle.strokeColor(android.R.color.transparent);
         aMap.setMyLocationStyle(myLocationStyle);
 //开始定位
-
-
+        Log.e("initData: ", "----------------1");
         initLoc();
 
 
@@ -94,6 +93,7 @@ public class MapActivity extends BaseActivity implements LocationSource, AMapLoc
         //确定按钮
         //showDetermine();
     }
+
     @Override
     public int getlayoutID() {
         return R.layout.activity_map;
@@ -101,27 +101,14 @@ public class MapActivity extends BaseActivity implements LocationSource, AMapLoc
 
     @Override
     protected void doDetermine() {
-      /*  boolean contains = getShare().contains(buffer.toString());*/
 
-        //实例化SharedPreferences对象（第一步）
-        // mySharedPreferences = getSharedPreferences("test",
-        //        Activity.MODE_PRIVATE);
-        //实例化SharedPreferences.Editor对象（第二步）
-        // SharedPreferences.Editor editor = mySharedPreferences.edit();
-        //用putString的方法保存数据
-        // editor.putString("title", buffer.toString());
 
-        //提交当前数据
-        // editor.commit();
-        //使用toast信息提示框提示成功写入数据
-        // SharedPreferences share = getShare();
-        Log.e("sdfgh",buffer.toString());
-        setTitleToShare(buffer.toString());
-      /*
-        Toast.makeText(this, "数据成功写入SharedPreferences！",
-                Toast.LENGTH_LONG).show();*/
+        if (!TextUtils.isEmpty(buffer.toString())) {
+            setTitleToShare(buffer.toString());
+            finish();
+        }
 
-        finish();
+
     }
 
     @Override
@@ -161,6 +148,8 @@ public class MapActivity extends BaseActivity implements LocationSource, AMapLoc
     @Override
     public void onLocationChanged(AMapLocation amapLocation) {
         if (amapLocation != null) {
+
+
             if (amapLocation.getErrorCode() == 0) {
                 //定位成功回调信息，设置相关消息
                 amapLocation.getLocationType();//获取当前定位结果来源，如网络定位结果，详见官方定位类型表
@@ -191,6 +180,7 @@ public class MapActivity extends BaseActivity implements LocationSource, AMapLoc
                     //添加图钉
                     aMap.addMarker(getMarkerOptions(amapLocation));
                     //获取定位信息
+
                     buffer = new StringBuffer();
                     buffer.append(amapLocation.getCountry() + "" + amapLocation.getProvince() + "" + amapLocation.getCity() + "" + amapLocation.getProvince() + "" + amapLocation.getDistrict() + "" + amapLocation.getStreet() + "" + amapLocation.getStreetNum());
                     Toast.makeText(getApplicationContext(), buffer.toString(), Toast.LENGTH_LONG).show();

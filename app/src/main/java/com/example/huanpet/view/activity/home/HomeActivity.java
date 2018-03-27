@@ -1,13 +1,14 @@
 package com.example.huanpet.view.activity.home;
 
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -41,7 +42,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView; 
+import android.widget.TextView;
 
 import com.example.huanpet.R;
 import com.example.huanpet.base.BaseActivity;
@@ -59,8 +60,6 @@ import com.example.huanpet.view.activity.wallet.WalletActivity;
  * 首页
  */
 public class HomeActivity extends BaseActivity {
-
-
 
 
     private RecyclerView recy_home_Page;
@@ -81,28 +80,22 @@ public class HomeActivity extends BaseActivity {
     private ImageView img2;
     private ImageView img3;
     //选择其他城市
-    private ImageView choice;
 
     private LinearLayout shaixuan_homePage;
-    private LinearLayout shaixuan_homePage1;
+    ;
     private LinearLayout lin;
 
     private List<String> nearList;
     private List<String> animalList;
     private Boolean aBoolean = true;
+    private Boolean aBoolean1 = true;
+    private Boolean aBoolean2 = true;
     private String[] near = {"附近优先", "好评优先", "订单优先", "价格从高到低", "价格从低到高"};
     private String[] animal = {"小型犬", "中型犬", "大型犬", "猫", "小宠", "幼犬"};
-
-
     private String url = "http://123.56.150.230:8885/dog_family/users/getUsersInfoByVO.jhtml";
-    private SharedPreferences share;
     private PopupWindow window;
-
-
     private View recyInflate1;
     private View listInflate;
-
-
     private FrameLayout v4_drawerlayout_frame;
     private LinearLayout v4_listview;
     private DrawerLayout dra;
@@ -121,6 +114,8 @@ public class HomeActivity extends BaseActivity {
     private LinearLayout need;
     private LinearLayout setting;
     private Button is_sure;
+    private TextView choice;
+    private PopupWindow window1;
 
 
     @Override
@@ -137,10 +132,6 @@ public class HomeActivity extends BaseActivity {
             public void onDrawerOpened(View drawerView) {
 
             }
-
-
-        getURL();
-
 
 
             @Override
@@ -188,24 +179,22 @@ public class HomeActivity extends BaseActivity {
         order.setOnClickListener(this);
 
 
+        recy_home_Page = (RecyclerView) findViewById(R.id.recy_home_Page);
 
+        nearby_homePage = (TextView) findViewById(R.id.nearby_homePage);
+        animal_homePage = (TextView) findViewById(R.id.animal_homePage);
+        screen_homePage = (TextView) findViewById(R.id.screen_homePage);
+        img1 = (ImageView) findViewById(R.id.img1);
+        img2 = (ImageView) findViewById(R.id.img2);
+        img3 = (ImageView) findViewById(R.id.img3);
 
-        recy_home_Page = (RecyclerView) findViewById( R.id.recy_home_Page );
+        shaixuan_homePage = (LinearLayout) findViewById(R.id.shaixuan_homePage);
+        choice = (TextView) findViewById(R.id.choice);
 
-        nearby_homePage = (TextView) findViewById( R.id.nearby_homePage );
-        animal_homePage = (TextView) findViewById( R.id.animal_homePage );
-        screen_homePage = (TextView) findViewById( R.id.screen_homePage );
-        img1 = (ImageView) findViewById( R.id.img1 );
-        img2 = (ImageView) findViewById( R.id.img2 );
-        img3 = (ImageView) findViewById( R.id.img3 );
-
-        shaixuan_homePage = (LinearLayout) findViewById( R.id.shaixuan_homePage );
-        choice = (ImageView) findViewById( R.id.choice );
-
-        choice.setOnClickListener( this );
-        nearby_homePage.setOnClickListener( this );
-        animal_homePage.setOnClickListener( this );
-        screen_homePage.setOnClickListener( this );
+        choice.setOnClickListener(this);
+        nearby_homePage.setOnClickListener(this);
+        animal_homePage.setOnClickListener(this);
+        screen_homePage.setOnClickListener(this);
         share = getShare();
     }
 
@@ -227,7 +216,7 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void onClick(View v) {
-        super.onClick( v );
+        super.onClick(v);
 
         switch (v.getId()) {
 
@@ -243,10 +232,10 @@ public class HomeActivity extends BaseActivity {
             case R.id.choice:
                 choiceJT();
                 break;
-             case R.id.login:
-                if (share.getBoolean("isLogin",false)){
+            case R.id.login:
+                if (share.getBoolean("isLogin", false)) {
                     startActivity(new Intent(this, UserActivity.class));
-                }else {
+                } else {
                     startActivity(new Intent(this, LoginActivity.class));
                 }
                 break;
@@ -276,135 +265,155 @@ public class HomeActivity extends BaseActivity {
     public void getURL() {
         Map<String, String> headMap = new HashMap<>();
         Map<String, String> bodyMap = new HashMap<>();
-        headMap.put( "channel", "android" );
-        headMap.put( "ip", "172.28.119.4" );
-        headMap.put( "sign", "B2754A38A5D5027F49424934A8DF5752" );
-        headMap.put( "token", "96F65F14C026230FD1D097C435964E0E" );
+        headMap.put("channel", "android");
+        headMap.put("ip", "172.28.119.4");
+        headMap.put("sign", "B2754A38A5D5027F49424934A8DF5752");
+        headMap.put("token", "96F65F14C026230FD1D097C435964E0E");
 
-        bodyMap.put( "beginIndex", "0" );
-        bodyMap.put( "endIndex", "10" );
+        bodyMap.put("beginIndex", "0");
+        bodyMap.put("endIndex", "10");
 
-        bodyMap.put( "orderBy", near[0] );
+        bodyMap.put("orderBy", near[0]);
 
-        bodyMap.put( "coordX", share.getString( "latitude", "39.92" ) );
-        bodyMap.put( "coordY", share.getString( "longitude", "116.46" ) );
+        bodyMap.put("coordX", share.getString("latitude", "39.92"));
+        bodyMap.put("coordY", share.getString("longitude", "116.46"));
 
-        OkHttpUtls.getInstance().getOk( url, headMap, bodyMap );
-
+        OkHttpUtls.getInstance().getOk(url, headMap, bodyMap);
 
 
     }
 
     public void animalJT() {
+        if (window != null) {
+            window.dismiss();
+        }
+        if (shaixuan_homePage != null) {
+            shaixuan_homePage.setVisibility(View.GONE);
+            aBoolean2=true;
+            img3.setBackgroundResource(R.mipmap.down_arrow);
+        }
+
+
         if (aBoolean) {
             aBoolean = false;
-            View recyInflate1 = LayoutInflater.from( HomeActivity.this ).inflate( R.layout.item2_recy, null );
-            listInflate = LayoutInflater.from( HomeActivity.this ).inflate( R.layout.popup_homepage1, null );
-            list_home_Page = (ListView) listInflate.findViewById( R.id.list_home_Page );
+            View recyInflate1 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.item2_recy, null);
+            listInflate = LayoutInflater.from(HomeActivity.this).inflate(R.layout.popup_homepage1, null);
+            list_home_Page = (ListView) listInflate.findViewById(R.id.list_home_Page);
 
-            PopupWindow window = new PopupWindow( listInflate, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, false );
-            window.setFocusable( true );
-            window.setBackgroundDrawable( new BitmapDrawable() );
-            window.showAsDropDown( recyInflate1, 0, 250 );
+            window1 = new PopupWindow(listInflate, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, false);
+            window1.setFocusable(true);
+            window1.setBackgroundDrawable(new BitmapDrawable());
+            window1.showAsDropDown(recyInflate1, 0, 300);
 
-            list_home_Page.setVisibility( View.VISIBLE );
-            img2.setBackgroundResource( R.mipmap.up_arrow );
+            list_home_Page.setVisibility(View.VISIBLE);
+            img2.setBackgroundResource(R.mipmap.up_arrow);
             animalList = new ArrayList<>();
             for (int i = 0; i < animal.length; i++) {
-                animalList.add( animal[i] );
+                animalList.add(animal[i]);
             }
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<>( HomeActivity.this, android.R.layout.simple_expandable_list_item_1, animalList );
-            list_home_Page.setAdapter( adapter );
-            recy_home_Page.setBackgroundResource( R.color.istrue );
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(HomeActivity.this, android.R.layout.simple_expandable_list_item_1, animalList);
+            list_home_Page.setAdapter(adapter);
+            recy_home_Page.setBackgroundResource(R.color.istrue);
 
-            window.setOnDismissListener( new PopupWindow.OnDismissListener() {
+            window1.setOnDismissListener(new PopupWindow.OnDismissListener() {
                 @Override
                 public void onDismiss() {
 //                            window.dismiss();
-                    img2.setBackgroundResource( R.mipmap.down_arrow );
-                    recy_home_Page.setBackgroundResource( R.color.isfalse );
+                    img2.setBackgroundResource(R.mipmap.down_arrow);
+                    recy_home_Page.setBackgroundResource(R.color.isfalse);
                     aBoolean = true;
                 }
-            } );
+            });
 
         } else {
-            window.dismiss();
-            img1.setBackgroundResource( R.mipmap.down_arrow );
-            recy_home_Page.setBackgroundResource( R.color.isfalse );
+            window1.dismiss();
+            img1.setBackgroundResource(R.mipmap.down_arrow);
+            recy_home_Page.setBackgroundResource(R.color.isfalse);
             aBoolean = true;
         }
     }
 
     public void setNearby_homePageJT() {
-        if (aBoolean) {
-            aBoolean = false;
-            recyInflate1 = LayoutInflater.from( HomeActivity.this ).inflate( R.layout.item2_recy, null );
-            listInflate = LayoutInflater.from( HomeActivity.this ).inflate( R.layout.popup_homepage1, null );
-            list_home_Page = (ListView) listInflate.findViewById( R.id.list_home_Page );
+        if (aBoolean1) {
 
-            window = new PopupWindow( listInflate, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, false );
-            window.setFocusable( true );
-            window.setBackgroundDrawable( new BitmapDrawable() );
-            window.showAsDropDown( recyInflate1, 0, 250 );
-
-            list_home_Page.setVisibility( View.VISIBLE );
-            img1.setBackgroundResource( R.mipmap.up_arrow );
-            nearList = new ArrayList<>();
-            for (int i = 0; i < near.length; i++) {
-                nearList.add( near[i] );
+            if (window1 != null) {
+                window1.dismiss();
+            }
+            if (shaixuan_homePage != null) {
+                shaixuan_homePage.setVisibility(View.GONE);
+                aBoolean2=true;
+                img3.setBackgroundResource(R.mipmap.down_arrow);
             }
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<>( HomeActivity.this, android.R.layout.simple_expandable_list_item_1, nearList );
-            list_home_Page.setAdapter( adapter );
-            recy_home_Page.setBackgroundResource( R.color.istrue );
+            aBoolean1 = false;
+            recyInflate1 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.item2_recy, null);
+            listInflate = LayoutInflater.from(HomeActivity.this).inflate(R.layout.popup_homepage1, null);
+            list_home_Page = (ListView) listInflate.findViewById(R.id.list_home_Page);
 
-            window.setOnDismissListener( new PopupWindow.OnDismissListener() {
+            window = new PopupWindow(listInflate, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, false);
+            window.setFocusable(true);
+            window.setBackgroundDrawable(new BitmapDrawable());
+            window.showAsDropDown(recyInflate1, 0, 300);
+
+            list_home_Page.setVisibility(View.VISIBLE);
+            img1.setBackgroundResource(R.mipmap.up_arrow);
+            nearList = new ArrayList<>();
+            for (int i = 0; i < near.length; i++) {
+                nearList.add(near[i]);
+            }
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(HomeActivity.this, android.R.layout.simple_expandable_list_item_1, nearList);
+            list_home_Page.setAdapter(adapter);
+            recy_home_Page.setBackgroundResource(R.color.istrue);
+
+            window.setOnDismissListener(new PopupWindow.OnDismissListener() {
                 @Override
                 public void onDismiss() {
 //                            window.dismiss();
-                    img1.setBackgroundResource( R.mipmap.down_arrow );
-                    recy_home_Page.setBackgroundResource( R.color.isfalse );
-                    aBoolean = true;
+                    img1.setBackgroundResource(R.mipmap.down_arrow);
+                    recy_home_Page.setBackgroundResource(R.color.isfalse);
+                    aBoolean1 = true;
                 }
-            } );
+            });
 
         } else {
             window.dismiss();
-            img1.setBackgroundResource( R.mipmap.down_arrow );
-            recy_home_Page.setBackgroundResource( R.color.isfalse );
+            img1.setBackgroundResource(R.mipmap.down_arrow);
+            recy_home_Page.setBackgroundResource(R.color.isfalse);
             aBoolean = true;
         }
     }
 
     public void shaixuanJT() {
-        View inflate = LayoutInflater.from( HomeActivity.this ).inflate( R.layout.item2_recy, null );
+        View inflate = LayoutInflater.from(HomeActivity.this).inflate(R.layout.item2_recy, null);
 
-        lin = (LinearLayout) inflate.findViewById( R.id.lin );
-        recy_home_Page1 = (RecyclerView) inflate.findViewById( R.id.recy_home_Page );
-
-
-        if (aBoolean) {
-            lin.setVisibility( View.GONE );
-            shaixuan_homePage.setVisibility( View.VISIBLE );
-            img3.setBackgroundResource( R.mipmap.up_arrow );
-            aBoolean = false;
+        lin = (LinearLayout) inflate.findViewById(R.id.lin);
+        recy_home_Page1 = (RecyclerView) inflate.findViewById(R.id.recy_home_Page);
+        if (window != null) {
+            window.dismiss();
+        }
+        if (window1 != null) {
+            window1.dismiss();
+        }
+        if (aBoolean2) {
+            lin.setVisibility(View.GONE);
+            shaixuan_homePage.setVisibility(View.VISIBLE);
+            img3.setBackgroundResource(R.mipmap.up_arrow);
+            aBoolean2 = false;
         } else {
-            lin.setVisibility( View.VISIBLE );
-            shaixuan_homePage.setVisibility( View.GONE );
-            img3.setBackgroundResource( R.mipmap.down_arrow );
-            aBoolean = true;
-        }
-    }
-    public void choiceJT(){
-        Intent intent = new Intent( HomeActivity.this, ScreenActivity.class );
-        startActivityForResult( intent,200 );
-    }
-
-           
+            lin.setVisibility(View.VISIBLE);
+            shaixuan_homePage.setVisibility(View.GONE);
+            img3.setBackgroundResource(R.mipmap.down_arrow);
+            aBoolean2 = true;
         }
     }
 
+    public void choiceJT() {
+        Intent intent = new Intent(HomeActivity.this, ScreenActivity.class);
+        startActivityForResult(intent, 200);
+    }
 
 
 }
+

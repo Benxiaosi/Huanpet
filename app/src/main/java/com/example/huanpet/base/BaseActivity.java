@@ -353,12 +353,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
 
-    //跳转筛选Activity方法
-   protected void intentSou() {
-        Intent intent = new Intent(this, ScreenActivity.class);
-        startActivity(intent);
-   }
-
 
     //弹出侧滑菜单方法
     protected abstract void intentUser();
