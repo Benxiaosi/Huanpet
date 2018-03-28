@@ -32,6 +32,12 @@ public class RegistActivity extends BaseActivity {
 
     @Override
     protected void initview() {
+        showBack(true);
+        showSouText(false);
+        showMap(false);
+        showUser(false);
+        setTitle("注册账号");
+        showTitle(true);
         regist_phoneNum = (EditText) findViewById(R.id.regist_phoneNum);
         regist_verification = (TextView) findViewById(R.id.regist_verification);
         regist_phone_code = (EditText) findViewById(R.id.regist_phone_code);

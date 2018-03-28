@@ -9,7 +9,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="240px"
         android:gravity="center"
         android:text="欢迎你加入宠物寄养"
         android:textColor="#fff"
@@ -18,14 +18,14 @@
     <EditText
         android:id="@+id/unser_number"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="10dp"
+        android:layout_height="120px"
+        android:layout_margin="20px"
         android:hint="请输入手机号码" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="10dp">
+        android:layout_height="120px"
+        android:layout_margin="20px">
 
         <EditText
             android:id="@+id/user_password"
@@ -48,36 +48,36 @@
     <Button
         android:id="@+id/bt_login"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="10dp"
+        android:layout_height="150px"
+        android:layout_margin="40px"
         android:background="#eddb0c"
         android:text="登录"
         android:textSize="25sp" />
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="60px"
+        android:layout_marginTop="60px"
         android:gravity="center"
-        android:text="—————————————使用第三方账号登录————————————" />
+        android:text="————————使用第三方账号登录———————" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="240px"
         android:gravity="center"
         android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/login_QQ"
-            android:layout_width="90dp"
-            android:layout_height="110dp"
-            android:layout_margin="15dp"
+            android:layout_width="180px"
+            android:layout_height="220px"
+            android:layout_margin="30px"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="140px"
+                android:layout_height="140px"
                 android:background="@mipmap/login_qq" />
 
             <TextView
@@ -88,15 +88,15 @@
 
         <LinearLayout
             android:id="@+id/login_Chat"
-            android:layout_width="90dp"
-            android:layout_height="110dp"
-            android:layout_margin="15dp"
+            android:layout_width="180px"
+            android:layout_height="180px"
+            android:layout_margin="30px"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="140px"
+                android:layout_height="140px"
                 android:background="@mipmap/login_weixin" />
 
             <TextView

@@ -304,7 +304,7 @@ public class HomeActivity extends BaseActivity {
             window1 = new PopupWindow(listInflate, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, false);
             window1.setFocusable(true);
             window1.setBackgroundDrawable(new BitmapDrawable());
-            window1.showAsDropDown(recyInflate1, 0, 300);
+            window1.showAsDropDown(recyInflate1, 0, 320);
 
             list_home_Page.setVisibility(View.VISIBLE);
             img2.setBackgroundResource(R.mipmap.up_arrow);
@@ -355,7 +355,7 @@ public class HomeActivity extends BaseActivity {
             window = new PopupWindow(listInflate, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, false);
             window.setFocusable(true);
             window.setBackgroundDrawable(new BitmapDrawable());
-            window.showAsDropDown(recyInflate1, 0, 300);
+            window.showAsDropDown(recyInflate1, 0, 320);
 
             list_home_Page.setVisibility(View.VISIBLE);
             img1.setBackgroundResource(R.mipmap.up_arrow);

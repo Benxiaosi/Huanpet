@@ -16,31 +16,31 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:id="@+id/liner2"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="150px"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="80px"
+                    android:layout_height="80px"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="5dp"
+                    android:layout_margin="10px"
                     android:background="@mipmap/my" />
-
 
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="150px"
                     android:layout_weight="1">
 
                     <TextView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="80px"
+                        android:layout_height="80px"
                         android:layout_gravity="center_vertical"
-                        android:layout_margin="5dp"
+                        android:layout_margin="10px"
                         android:background="@mipmap/search" />
 
                     <EditText
@@ -53,21 +53,22 @@
 
                 <TextView
                     android:id="@+id/map"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="80px"
+                    android:layout_height="80px"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="5dp"
+                    android:layout_margin="10px"
                     android:background="@mipmap/map" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="100px"
                 android:orientation="horizontal">
 
                 <LinearLayout
 
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="100px"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="horizontal">
@@ -83,8 +84,8 @@
                     <ImageView
                         android:id="@+id/img1"
 
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="40px"
+                        android:layout_height="40px"
                         android:layout_gravity="center"
                         android:background="@mipmap/down_arrow" />
 
@@ -94,7 +95,7 @@
                 <LinearLayout
 
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="100px"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="horizontal">
@@ -108,8 +109,8 @@
 
                     <ImageView
                         android:id="@+id/img2"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="40px"
+                        android:layout_height="40px"
                         android:layout_gravity="center"
                         android:background="@mipmap/down_arrow" />
 
@@ -118,7 +119,7 @@
                 <LinearLayout
 
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="100px"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="horizontal">
@@ -132,8 +133,8 @@
 
                     <ImageView
                         android:id="@+id/img3"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="40px"
+                        android:layout_height="40px"
                         android:layout_gravity="center"
                         android:background="@mipmap/down_arrow" />
                 </LinearLayout>
@@ -143,7 +144,7 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2px"
                 android:background="#d4cfcf" />
 
 
@@ -152,167 +153,166 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="gone"
-                >
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:gravity="center_vertical"
-                        android:textSize="20sp"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
-                        android:text="所在地" />
-
-                    <TextView
-                        android:gravity="center_vertical"
-                        android:textSize="20sp"
-                        android:id="@+id/choice"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="100dp"
-                        android:text="选择其他城市" />
+                        android:layout_marginLeft="20px"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="所在地"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:id="@+id/choice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="200px"
+                        android:gravity="center_vertical"
+                        android:text="选择其他城市"
+                        android:textSize="20sp" />
 
                     <ImageView
-                        android:layout_width="25dp"
+                        android:layout_width="50px"
                         android:layout_height="match_parent"
                         android:background="@mipmap/enter" />
                 </LinearLayout>
 
                 <TextView
-                    android:gravity="center"
-                    android:textSize="25sp"
                     android:id="@+id/location"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="220px"
+                    android:layout_height="120px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="10px"
                     android:background="#f0e50b"
-                    android:text="北京">
-                </TextView>
+                    android:gravity="center"
+                    android:text="北京"
+                    android:textSize="15sp"></TextView>
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="50px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="10px"
                     android:text="其他服务" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="150px"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/shower"
-                        android:layout_width="100dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
-
+                        android:layout_width="270px"
+                        android:layout_height="150px"
+                        android:layout_margin="20px"
                         android:text="洗澡" />
 
                     <Button
                         android:id="@+id/shuttle"
-                        android:layout_width="100dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
+                        android:layout_width="270px"
+                        android:layout_height="150px"
+                        android:layout_margin="20px"
                         android:text="接/送" />
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="60px"
+                    android:layout_marginLeft="20px"
+                    android:layout_marginTop="10px"
                     android:text="节假日筛选" />
 
                 <LinearLayout
 
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="150px"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/egg"
-                        android:layout_width="100dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
+                        android:layout_width="270px"
+                        android:layout_height="150px"
+                        android:layout_margin="20px"
                         android:text="元旦可接单" />
 
                     <Button
                         android:id="@+id/spring"
-                        android:layout_width="100dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
+                        android:layout_width="270px"
+                        android:layout_height="150px"
+                        android:layout_margin="20px"
                         android:text="春节可接单" />
 
                     <Button
                         android:id="@+id/qingming"
-                        android:layout_width="100dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
+                        android:layout_width="270px"
+                        android:layout_height="150px"
+                        android:layout_margin="20px"
                         android:text="清明可接单" />
                 </LinearLayout>
 
                 <LinearLayout
 
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="150px"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/labour"
-                        android:layout_width="100dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
+                        android:layout_width="270px"
+                        android:layout_height="150px"
+                        android:layout_margin="20px"
                         android:text="劳动可接单" />
 
                     <Button
                         android:id="@+id/dragonBoat"
-                        android:layout_width="100dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
+                        android:layout_width="270px"
+                        android:layout_height="150px"
+                        android:layout_margin="20px"
                         android:text="端午可接单" />
 
                     <Button
                         android:id="@+id/mid_autumn"
-                        android:layout_width="100dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
+                        android:layout_width="270px"
+                        android:layout_height="150px"
+                        android:layout_margin="20px"
                         android:text="中秋可接单" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="150px"
                     android:orientation="vertical">
 
                     <Button
                         android:id="@+id/national"
-                        android:layout_width="100dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
+                        android:layout_width="270px"
+                        android:layout_height="150px"
+                        android:layout_margin="20px"
                         android:text="国庆可接单" />
 
 
                 </LinearLayout>
+
                 <Button
                     android:id="@+id/reset"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
+                    android:layout_width="400px"
+                    android:layout_height="150px"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="20px"
                     android:text="重置" />
+
                 <Button
-                    android:layout_margin="10dp"
                     android:id="@+id/determine"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="150px"
+                    android:layout_margin="20px"
                     android:background="#f2d40e"
                     android:text="确定" />
             </LinearLayout>
@@ -339,21 +339,21 @@
         <LinearLayout
             android:id="@+id/login"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginLeft="20dp">
+            android:layout_height="240px"
+            android:layout_marginLeft="40px">
 
             <ImageView
                 android:id="@+id/user_img"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="160px"
+                android:layout_height="160px"
                 android:layout_gravity="center_vertical"
                 android:background="@mipmap/ic_launcher" />
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="160px"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20px"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -379,8 +379,8 @@
 
             <TextView
                 android:id="@+id/user_enter"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="60px"
+                android:layout_height="60px"
                 android:layout_gravity="center_vertical"
                 android:background="@mipmap/enter" />
 
@@ -388,26 +388,26 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2px"
             android:background="#dccfcf" />
 
 
         <LinearLayout
             android:id="@+id/news"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp">
+            android:layout_height="120px"
+            android:layout_marginLeft="40px">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="80px"
+                android:layout_height="80px"
                 android:layout_gravity="center_vertical"
                 android:background="@mipmap/messages" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="10px"
                 android:gravity="center_vertical"
                 android:text="消息"
                 android:textSize="20sp" />
@@ -417,25 +417,25 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2px"
             android:background="#dccfcf" />
 
         <LinearLayout
             android:id="@+id/pet"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp">
+            android:layout_height="120px"
+            android:layout_marginLeft="40px">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="80px"
+                android:layout_height="80px"
                 android:layout_gravity="center_vertical"
                 android:background="@mipmap/pet" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="10px"
                 android:gravity="center_vertical"
                 android:text="宠物"
                 android:textSize="20sp" />
@@ -445,25 +445,25 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2px"
             android:background="#dccfcf" />
 
         <LinearLayout
             android:id="@+id/order"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp">
+            android:layout_height="120px"
+            android:layout_marginLeft="40px">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="80px"
+                android:layout_height="80px"
                 android:layout_gravity="center_vertical"
                 android:background="@mipmap/order_details" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="10px"
                 android:gravity="center_vertical"
                 android:text="订单"
                 android:textSize="20sp" />
@@ -473,25 +473,25 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2px"
             android:background="#dccfcf" />
 
         <LinearLayout
             android:id="@+id/wallet"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp">
+            android:layout_height="120px"
+            android:layout_marginLeft="40px">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="80px"
+                android:layout_height="80px"
                 android:layout_gravity="center_vertical"
                 android:background="@mipmap/collection_account" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="10px"
                 android:gravity="center_vertical"
                 android:text="钱包"
                 android:textSize="20sp" />
@@ -501,25 +501,25 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2px"
             android:background="#dccfcf" />
 
         <LinearLayout
             android:id="@+id/need"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp">
+            android:layout_height="120px"
+            android:layout_marginLeft="40px">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="80px"
+                android:layout_height="80px"
                 android:layout_gravity="center_vertical"
                 android:background="@mipmap/about" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="10px"
                 android:gravity="center_vertical"
                 android:text="需知"
                 android:textSize="20sp" />
@@ -529,25 +529,25 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2px"
             android:background="#dccfcf" />
 
         <LinearLayout
             android:id="@+id/setting"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp">
+            android:layout_height="120px"
+            android:layout_marginLeft="40px">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="80px"
+                android:layout_height="80px"
                 android:layout_gravity="center_vertical"
                 android:background="@mipmap/perfect_information" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="10px"
                 android:gravity="center_vertical"
                 android:text="设置"
                 android:textSize="20sp" />
@@ -556,16 +556,16 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="2px"
             android:background="#dccfcf" />
 
 
         <Button
             android:id="@+id/is_sure"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="120px"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20px"
             android:background="#ffff"
             android:text="申请成为饲养家庭"
             android:textSize="20sp" />

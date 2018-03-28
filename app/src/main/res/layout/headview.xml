@@ -7,26 +7,26 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="100px">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="32px"
             android:text="当前定位城市"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
 
         <Button
             android:id="@+id/btn_city_name"
-            android:layout_width="60dp"
+            android:layout_width="120px"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="北京"
-            android:layout_marginRight="28dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginRight="56px"
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="20px"
             android:layout_alignParentRight="true"
             android:background="#32B9AB"
             android:textColor="@android:color/white"
@@ -35,15 +35,15 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginRight="24dp"
+        android:layout_height="2px"
+        android:layout_marginRight="48px"
         android:background="#E0E0E0" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="70px"
         android:gravity="center_vertical"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="32px"
         android:text="热门城市"
         android:textColor="@android:color/black"
         android:textSize="14sp" />
@@ -51,15 +51,15 @@
     <com.example.huanpet.view.activity.screen.view.MyGridView
         android:id="@+id/gv_hot_city"
         android:layout_width="match_parent"
-        android:layout_marginRight="4dp"
+        android:layout_marginRight="8px"
         android:numColumns="3"
         android:layout_height="match_parent" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="70px"
         android:gravity="center_vertical"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="32px"
         android:text="主要城市"
         android:textColor="@android:color/black"
         android:textSize="14sp" />

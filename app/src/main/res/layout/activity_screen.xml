@@ -10,16 +10,16 @@
     <com.example.huanpet.view.activity.screen.view.EditTextWithDel
         android:id="@+id/et_search"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="100px"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="32px"
+        android:layout_marginRight="30px"
+        android:layout_marginTop="10px"
         android:background="@drawable/edittext_background"
         android:hint="请输入城市"
-        android:paddingLeft="5dp"
+        android:paddingLeft="10px"
         android:singleLine="true"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -35,8 +35,8 @@
 
         <TextView
             android:id="@+id/dialog"
-            android:layout_width="60dp"
-            android:layout_height="80dp"
+            android:layout_width="120px"
+            android:layout_height="160px"
             android:layout_gravity="center"
             android:background="#606060"
             android:gravity="center"
@@ -48,7 +48,7 @@
 
         <com.example.huanpet.view.activity.screen.view.SideBar
             android:id="@+id/sidrbar"
-            android:layout_width="24dp"
+            android:layout_width="48px"
             android:layout_height="match_parent"
             android:layout_gravity="right|center" />
     </FrameLayout>
