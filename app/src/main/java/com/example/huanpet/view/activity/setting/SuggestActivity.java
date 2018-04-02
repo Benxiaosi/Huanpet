@@ -1,14 +1,10 @@
-package com.example.huanpet.view.activity.need;
-
-import android.support.v7.widget.RecyclerView;
+package com.example.huanpet.view.activity.setting;
 
 import com.example.huanpet.R;
 import com.example.huanpet.base.BaseActivity;
 
-public class NeedActivity extends BaseActivity {
+public class SuggestActivity extends BaseActivity {
 
-
-    private RecyclerView need;
 
     @Override
     protected void initData() {
@@ -20,20 +16,20 @@ public class NeedActivity extends BaseActivity {
         //返回按钮
         showBack(true);
         showTitle(true);
-        setTitle("需知");
+        setTitle("产品建议");
         showDetermine(false);
+
         showSouText(false);
         showMap(false);
         showUser(false);
         //showDetermine
         //确定按钮
         //showDetermine();
-        need = findViewById(R.id.rv_need);
     }
 
     @Override
     public int getlayoutID() {
-        return R.layout.activity_need;
+        return R.layout.activity_suggest;
     }
 
     @Override

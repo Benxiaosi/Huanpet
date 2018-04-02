@@ -1,9 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.huanpet.view.activity.setting.SettingActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+<LinearLayout
+android:layout_marginTop="50px"
+android:layout_width="match_parent"
+android:layout_height="120px"
+android:orientation="horizontal"
+android:id="@+id/sugges"
+android:background="#ffffff"
+    >
+<ImageView
+
+    android:layout_width="35px"
+    android:layout_height="50px"
+
+    android:layout_margin="30px"
+    android:src="@mipmap/product_proposal"
+
+    />
+<TextView
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:text="产品建议"
+    android:paddingTop="25px"
+    android:layout_height="match_parent" />
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="30px"
+    android:src="@mipmap/enter"
+    />
+</LinearLayout>
+
+<LinearLayout
+android:background="#ffffff"
+android:layout_marginTop="2dp"
+android:layout_width="match_parent"
+android:layout_height="120px"
+android:orientation="horizontal"
+android:id="@+id/new_function"
+    >
+<ImageView
+
+    android:layout_width="35px"
+    android:layout_height="50px"
+    android:src="@mipmap/coupon"
+    android:layout_margin="30px"
+    />
+<TextView
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:text="新功能介绍"
+    android:paddingTop="25px"
+    android:layout_height="match_parent" />
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="30px"
+    android:src="@mipmap/enter"
+    />
+</LinearLayout>
+    <LinearLayout
+        android:background="#ffffff"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:id="@+id/gotoscore"
+        android:orientation="horizontal"
+        >
+        <ImageView
+
+            android:layout_width="35px"
+            android:layout_height="50px"
+            android:layout_margin="30px"
+            android:src="@mipmap/score"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="去评分"
+            android:paddingTop="25px"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_margin="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/enter"
+            />
+    </LinearLayout>
+<LinearLayout
+android:background="#ffffff"
+android:layout_marginTop="2dp"
+android:layout_width="match_parent"
+android:layout_height="120px"
+android:id="@+id/about_huanhuan"
+android:orientation="horizontal"
+    >
+<ImageView
+
+    android:layout_width="35px"
+    android:layout_height="50px"
+    android:layout_margin="30px"
+    android:src="@mipmap/integral"
+    />
+<TextView
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:text="关于欢欢"
+    android:paddingTop="25px"
+    android:layout_height="match_parent" />
+
+<ImageView
+    android:layout_margin="30px"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/enter"
+    />
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="50px"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:orientation="horizontal"
+        android:id="@+id/wlfl_under"
+        android:background="#ffffff"
+        >
+        <ImageView
+
+            android:layout_width="35px"
+            android:layout_height="50px"
+
+            android:layout_margin="30px"
+            android:src="@mipmap/my"
+
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="仅在WlFl下显示图片"
+            android:paddingTop="25px"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:src="@mipmap/enter"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="#ffffff"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:orientation="horizontal"
+        android:id="@+id/pictaer_cach"
+        >
+        <ImageView
+
+            android:layout_width="35px"
+            android:layout_height="50px"
+            android:src="@mipmap/cache"
+            android:layout_margin="30px"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="图片缓存文件大学"
+            android:paddingTop="25px"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:src="@mipmap/enter"
+            />
+    </LinearLayout>
+    <LinearLayout
+    android:background="#ffffff"
+    android:layout_marginTop="2dp"
+    android:layout_width="match_parent"
+    android:layout_height="120px"
+    android:id="@+id/clear_cache"
+    android:orientation="horizontal"
+    >
+    <ImageView
+
+        android:layout_width="35px"
+        android:layout_height="50px"
+        android:layout_margin="30px"
+        android:src="@mipmap/clear"
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="清除缓存"
+        android:paddingTop="25px"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:layout_margin="30px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/enter"
+        />
+</LinearLayout>
+</LinearLayout>

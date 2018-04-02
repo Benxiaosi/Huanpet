@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="#BBBBBB"
     tools:context="com.example.huanpet.view.activity.order.OrderActivity">
+ <RadioGroup
+     android:layout_width="match_parent"
+     android:layout_height="80px"
+     android:id="@+id/rg"
+     android:background="#ffffff"
+     android:orientation="horizontal"
+     >
+     <RadioButton
+         android:layout_width="0dp"
+         android:layout_weight="1"
+         android:gravity="center"
+         android:button="@null"
+         android:layout_height="match_parent"
+         android:id="@+id/All"
+         android:text="确定"
 
-</android.support.constraint.ConstraintLayout>
+         />
+     <RadioButton
+         android:layout_width="0dp"
+         android:layout_weight="1"
+         android:layout_height="match_parent"
+         android:id="@+id/Confim"
+         android:text=" 待确定"
+         android:gravity="center"
+         android:button="@null"
+         />
+     <RadioButton
+         android:layout_width="0dp"
+         android:layout_weight="1"
+         android:layout_height="match_parent"
+         android:id="@+id/evaluatio"
+         android:text= "寄养中"
+         android:gravity="center"
+         android:button="@null"
+         />
+     <RadioButton
+         android:layout_width="0dp"
+         android:layout_weight="1"
+         android:layout_height="match_parent"
+         android:id="@+id/fostering"
+         android:text="待评价"
+         android:gravity="center"
+         android:button="@null"
+         />
+
+ </RadioGroup>
+  <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:id="@+id/fragment"
+      ></FrameLayout>
+</LinearLayout>
