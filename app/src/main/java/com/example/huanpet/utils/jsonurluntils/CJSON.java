@@ -67,11 +67,6 @@ public class CJSON {
             int count = keys.size();
             for (int i = 0; i < count; i++) {
                 if (params.get(keys.get(i)) != null) {
-                    if (params.get(keys.get(i)).equals("null")
-                            || params.get(keys.get(i)).equals("0")) {
-                        count--;
-                        continue;
-                    }
                     Log.e("buildJSON: ", keys.get(i) + "-------------------------------------------");
                     json.append(START_CONTENT + keys.get(i) + END_CONTENT + COLON + START_CONTENT + params.get(keys.get(i)) + END_CONTENT);
                     if (!(i == count - 1))
@@ -79,7 +74,6 @@ public class CJSON {
                 }
             }
         }
-
         json.append(END_BRACES + END_BRACES);
         Log.e("buildJSON: ", "-----------------" + json.toString());
         return json.toString();
@@ -88,7 +82,6 @@ public class CJSON {
     public static String createToken(Context context) {
         // 生成的token
         String token = null;
-
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
 
@@ -151,7 +144,6 @@ public class CJSON {
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
                         handler.obtainMessage(0, response.body().string()).sendToTarget();
-
 
                     }
                 });
