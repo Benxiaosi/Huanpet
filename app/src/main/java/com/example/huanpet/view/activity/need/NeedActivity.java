@@ -29,7 +29,6 @@ public class NeedActivity extends BaseActivity {
     public int getlayoutID() {
         return R.layout.activity_need;
     }
-
     @Override
     protected void doDetermine() {
 
