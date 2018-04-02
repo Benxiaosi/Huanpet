@@ -82,6 +82,8 @@ public class LoginActivity extends BaseActivity {
         login_QQ = (LinearLayout) findViewById(R.id.login_QQ);
         login_Chat = (LinearLayout) findViewById(R.id.login_Chat);
         bt_login.setOnClickListener(this);
+        login_QQ.setOnClickListener(this);
+        login_Chat.setOnClickListener(this);
     }
 
     @Override
@@ -109,10 +111,16 @@ public class LoginActivity extends BaseActivity {
                 login();
                 break;
             case R.id.login_QQ:
-
+                Map<String, Object> param = new HashMap<>();
+                param.put("userName", "666");
+                param.put("password", Md5Encrypt.md5("123456", "UTF-8"));
+                CJSON.getData(this, "user/login.jhtml", param, mHandler);
                 break;
             case R.id.login_Chat:
-
+                Map<String, Object> param1 = new HashMap<>();
+                param1.put("userName", "666");
+                param1.put("password", Md5Encrypt.md5("123456", "UTF-8"));
+                CJSON.getData(this, "user/login.jhtml", param1, mHandler);
                 break;
             case R.id.user_format:
 

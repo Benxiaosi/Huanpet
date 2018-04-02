@@ -48,6 +48,7 @@ import java.util.Map;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.huanpet.view.activity.login.LoginActivity;
 import com.example.huanpet.view.activity.need.NeedActivity;
@@ -346,6 +347,14 @@ public class HomeActivity extends BaseActivity {
                 startActivity( new Intent( this, SettingActivity.class ) );
                 break;
             case R.id.is_sure:
+                if (share.getBoolean( "isLogin", false )) {
+                    Toast.makeText(this, "已成功提交,请耐心等候...", Toast.LENGTH_SHORT).show();
+                    is_sure.setBackgroundResource(R.color.istrue);
+                    is_sure.setEnabled(false);
+                } else {
+                    Toast.makeText(this, "请先登录！！！", Toast.LENGTH_SHORT).show();
+                }
+
                 break;
             case R.id.determin:
                 shaixuan_homePage.setVisibility( View.GONE );

@@ -1,10 +1,6 @@
 package com.example.huanpet.view.activity.user;
 
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import com.example.huanpet.R;
-public class UserActivity extends AppCompatActivity {
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,7 +8,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
