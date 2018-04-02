@@ -1,9 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.huanpet.view.activity.wallet.WalletActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        >
+
+        <TextView
+            android:layout_marginTop="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="钱包余额"
+            android:textSize="35px"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_marginTop="15px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:text="￥16亿"
+            android:layout_gravity="center"
+            android:id="@+id/jg_name"
+            />
+        <LinearLayout
+            android:layout_margin="80px"
+            android:layout_width="match_parent"
+            android:layout_height="120px"
+            android:orientation="horizontal"
+            android:gravity="center"
+
+            >
+            <Button
+                android:layout_width="250px"
+                android:layout_height="match_parent"
+                android:id="@+id/recharge"
+                android:text="充值"
+                android:background="#ffd900"
+                />
+            <Button
+                android:layout_marginLeft="10dp"
+                android:layout_width="250px"
+                android:layout_height="match_parent"
+                android:id="@+id/withdraw"
+                android:background="#fcfbfb"
+                android:text="提现"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="50px"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:orientation="horizontal"
+        android:id="@+id/Alipay"
+        android:background="#ffffff"
+        >
+        <ImageView
+
+            android:layout_width="35px"
+            android:layout_height="50px"
+
+            android:layout_margin="20px"
+            android:src="@mipmap/alipay"
+
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="我的支付宝"
+            android:paddingTop="25px"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:src="@mipmap/enter"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="#ffffff"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:orientation="horizontal"
+        android:id="@+id/jf"
+        >
+        <ImageView
+
+            android:layout_width="35px"
+            android:layout_height="50px"
+            android:src="@mipmap/coupon"
+            android:layout_margin="20px"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="我的优惠价"
+            android:paddingTop="25px"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30px"
+            android:src="@mipmap/enter"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:background="#ffffff"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:id="@+id/yhq"
+        android:orientation="horizontal"
+        >
+        <ImageView
+
+            android:layout_width="35px"
+            android:layout_height="50px"
+            android:layout_margin="20px"
+            android:src="@mipmap/integral"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="我的积分"
+            android:paddingTop="25px"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_margin="30px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/enter"
+            />
+    </LinearLayout>
+</LinearLayout>

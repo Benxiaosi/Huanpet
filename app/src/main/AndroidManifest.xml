@@ -14,7 +14,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- 允许程序读写手机状态和身份 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
     <!--用于进行网络定位-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
     <!--用于访问GPS定位-->
@@ -82,9 +81,11 @@
         <activity android:name=".view.activity.login.LoginActivity" />
         <activity android:name=".view.activity.user.UserActivity" />
         <activity android:name=".view.activity.login.RegistActivity" />
+
+        <activity android:name=".view.activity.wallet.TransactionActivity" />
+        <activity android:name=".view.activity.setting.SuggestActivity" />
         <activity android:name=".view.activity.home.ContenActivity" />
         <activity android:name=".view.activity.home.CommentActivity"></activity>
-
 
 
     </application>

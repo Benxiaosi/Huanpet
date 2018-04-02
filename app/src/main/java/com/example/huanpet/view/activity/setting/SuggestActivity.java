@@ -1,14 +1,10 @@
-package com.example.huanpet.view.activity.news;
-
-import android.support.v7.widget.RecyclerView;
+package com.example.huanpet.view.activity.setting;
 
 import com.example.huanpet.R;
 import com.example.huanpet.base.BaseActivity;
 
-public class NewsActivity extends BaseActivity {
+public class SuggestActivity extends BaseActivity {
 
-
-    private RecyclerView news;
 
     @Override
     protected void initData() {
@@ -20,20 +16,20 @@ public class NewsActivity extends BaseActivity {
         //返回按钮
         showBack(true);
         showTitle(true);
-        setTitle("消息");
+        setTitle("产品建议");
         showDetermine(false);
 
         showSouText(false);
         showMap(false);
         showUser(false);
-
-        news = findViewById(R.id.rv_news);
+        //showDetermine
+        //确定按钮
+        //showDetermine();
     }
-
 
     @Override
     public int getlayoutID() {
-        return R.layout.activity_news;
+        return R.layout.activity_suggest;
     }
 
     @Override
