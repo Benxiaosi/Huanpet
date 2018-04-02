@@ -25,7 +25,6 @@ public class NeedActivity extends BaseActivity {
         showUser(false);
         need = findViewById(R.id.rv_need);
     }
-
     @Override
     public int getlayoutID() {
         return R.layout.activity_need;
