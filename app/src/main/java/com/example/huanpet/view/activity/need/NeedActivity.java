@@ -33,7 +33,6 @@ public class NeedActivity extends BaseActivity {
         return R.layout.activity_need;
     }
 
-
     @Override
     protected void doDetermine() {
 
