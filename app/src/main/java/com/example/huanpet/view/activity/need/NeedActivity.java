@@ -23,10 +23,9 @@ public class NeedActivity extends BaseActivity {
         showSouText(false);
         showMap(false);
         showUser(false);
-        //showDetermine
-        //确定按钮
-        //showDetermine();
+
         need = findViewById(R.id.rv_need);
+
     }
 
     @Override
