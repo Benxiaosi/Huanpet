@@ -35,8 +35,7 @@ import com.example.huanpet.view.activity.home.bean.AnimalBean;
 import com.example.huanpet.view.activity.home.bean.MyBean;
 
 import com.example.huanpet.model.greendao.UserDao;
-import com.example.huanpet.utils.OkHttpUtls;
-import com.example.huanpet.view.ILoginView;
+
 
 import com.example.huanpet.view.activity.screen.ScreenActivity;
 
@@ -72,7 +71,7 @@ public class HomeActivity extends BaseActivity {
 
 
     private RecyclerView recy_home_Page;
-
+    private RecyclerView recy_home_Page1;
 
     private ListView list_home_Page;
 
