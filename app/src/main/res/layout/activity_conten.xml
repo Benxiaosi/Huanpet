@@ -28,6 +28,7 @@
             android:layout_width="150px"
             android:layout_height="150px"
             android:layout_gravity="center"
+            android:src="@mipmap/d"
             />
         <LinearLayout
             android:layout_width="wrap_content"
@@ -45,9 +46,9 @@
             <RatingBar
                 android:id="@+id/rating_content"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
                 android:layout_marginBottom="20px"
+                style="?android:attr/ratingBarStyleIndicator"
                 />
         </LinearLayout>
     </LinearLayout>
@@ -63,6 +64,7 @@
             android:src="@mipmap/evaluate"
             />
         <TextView
+            android:id="@+id/jiyangComment"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -72,6 +74,7 @@
             android:gravity="center_vertical"
             />
         <ImageView
+            android:id="@+id/comment"
             android:layout_width="80px"
             android:layout_height="80px"
             android:src="@mipmap/enter"

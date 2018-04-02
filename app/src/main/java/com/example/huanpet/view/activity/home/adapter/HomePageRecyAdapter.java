@@ -74,6 +74,7 @@ public class HomePageRecyAdapter extends RecyclerView.Adapter<HomePageRecyAdapte
         private TextView address_recycler;
         private TextView family_recycler;
 
+
         private RatingBar rating_recycler;
         private TextView price_recyler;
 

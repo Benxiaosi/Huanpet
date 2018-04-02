@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.huanpet">
-    <!--拨打电话权限-->
+
+    <!-- 拨打电话权限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <!-- 允许程序打开网络套接字 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -72,7 +73,8 @@
         <activity android:name=".view.activity.login.LoginActivity" />
         <activity android:name=".view.activity.user.UserActivity" />
         <activity android:name=".view.activity.login.RegistActivity" />
-        <activity android:name=".view.activity.home.ContenActivity"></activity>
+        <activity android:name=".view.activity.home.ContenActivity" />
+        <activity android:name=".view.activity.home.CommentActivity"></activity>
     </application>
 
 </manifest>

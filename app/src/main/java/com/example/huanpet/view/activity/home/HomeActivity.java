@@ -1,6 +1,7 @@
 package com.example.huanpet.view.activity.home;
 
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,8 +26,10 @@ import android.widget.TextView;
 import com.example.huanpet.R;
 import com.example.huanpet.base.BaseActivity;
 import com.example.huanpet.utils.jsonurluntils.CJSON;
+import com.example.huanpet.view.activity.home.adapter.HomeAnimalRecyAdapter;
 import com.example.huanpet.view.activity.home.adapter.HomeListAdapter;
 import com.example.huanpet.view.activity.home.adapter.HomePageRecyAdapter;
+import com.example.huanpet.view.activity.home.bean.AnimalBean;
 import com.example.huanpet.view.activity.home.bean.MyBean;
 import com.example.huanpet.view.activity.screen.ScreenActivity;
 
@@ -115,6 +118,7 @@ public class HomeActivity extends BaseActivity {
     private TextView choice;
     private PopupWindow window1;
 
+    @SuppressLint("HandlerLeak")
     private Handler han = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -122,8 +126,21 @@ public class HomeActivity extends BaseActivity {
             Log.e( "yanyan", (String) msg.obj );
             jsonData( (String) msg.obj );
 
+
         }
     };
+    @SuppressLint("HandlerLeak")
+    private Handler mhan = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage( msg );
+            Log.e( "yanyan", (String) msg.obj );
+
+            animalJsonData( (String) msg.obj );
+
+        }
+    };
+
 
     private List<MyBean> beanList;
     private String address;
@@ -131,6 +148,7 @@ public class HomeActivity extends BaseActivity {
     private String userImage;
     private String price;
     private int score;
+    private List<AnimalBean> animalList1;
 
 
     @Override
@@ -162,6 +180,7 @@ public class HomeActivity extends BaseActivity {
         } );
 
         getURL( indexNear[0] );
+
 
     }
 
@@ -296,7 +315,7 @@ public class HomeActivity extends BaseActivity {
         bodaMap.put( "endIndex", 10 );
         bodaMap.put( "petTypeCode", yan );
 
-        CJSON.getData( HomeActivity.this, "petType/getPetTypesByVO.jhtml", bodaMap, han );
+        CJSON.getData( HomeActivity.this, "petType/getPetTypesByVO.jhtml", bodaMap, mhan );
     }
 
     public void jsonData(String data) {
@@ -323,6 +342,26 @@ public class HomeActivity extends BaseActivity {
         }
 
 
+    }
+    public void animalJsonData(String data){
+        animalList1 = new ArrayList<>(  );
+        try {
+            JSONObject object = new JSONObject( data );
+            JSONArray desc = object.getJSONArray( "desc" );
+            for (int i = 0; i < desc.length(); i++) {
+                JSONObject jsonObject = desc.getJSONObject( i );
+                String petPrice = jsonObject.optString( "petPrice" );
+                String petTypeImage = jsonObject.optString( "petTypeImage" );
+                String typeName = jsonObject.optString( "typeName" );
+                animalList1.add( new AnimalBean( petPrice,petTypeImage,typeName ) );
+            }
+            HomeAnimalRecyAdapter homeAnimalRecyAdapter = new HomeAnimalRecyAdapter( animalList1, HomeActivity.this );
+            LinearLayoutManager manager = new LinearLayoutManager( HomeActivity.this, LinearLayoutManager.VERTICAL, false );
+            recy_home_Page.setAdapter( homeAnimalRecyAdapter );
+            recy_home_Page.setLayoutManager( manager );
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     public void animalJT() {
@@ -476,6 +515,7 @@ public class HomeActivity extends BaseActivity {
         super.onActivityResult( requestCode, resultCode, data );
         if (requestCode == 200 && resultCode == 100) {
             city.setText( data.getStringExtra( "city" ) );
+
         }
     }
 }
