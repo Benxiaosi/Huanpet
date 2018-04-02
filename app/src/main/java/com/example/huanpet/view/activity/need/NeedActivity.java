@@ -24,7 +24,6 @@ public class NeedActivity extends BaseActivity {
         showMap(false);
         showUser(false);
         need = findViewById(R.id.rv_need);
-
     }
 
     @Override
