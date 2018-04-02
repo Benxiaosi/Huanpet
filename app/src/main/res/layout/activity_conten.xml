@@ -288,7 +288,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="50px"
             android:text="北京市昌平区沙河"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:gravity="center_vertical"
             />
     </LinearLayout>

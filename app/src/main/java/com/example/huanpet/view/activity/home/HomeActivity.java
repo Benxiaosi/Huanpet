@@ -123,6 +123,7 @@ public class HomeActivity extends BaseActivity {
     private LinearLayout need;
     private LinearLayout setting;
     private Button is_sure;
+    private Button determin;
     private TextView choice;
     private PopupWindow window1;
     private List<UserDao> daos;
@@ -223,7 +224,7 @@ public class HomeActivity extends BaseActivity {
         news.setOnClickListener( this );
         order.setOnClickListener( this );
         city = findViewById( R.id.location );
-
+        determin = findViewById( R.id.determin );
         recy_home_Page = (RecyclerView) findViewById( R.id.recy_home_Page );
 
         nearby_homePage = (TextView) findViewById( R.id.nearby_homePage );
@@ -279,7 +280,7 @@ public class HomeActivity extends BaseActivity {
         nearby_homePage.setOnClickListener(this);
         animal_homePage.setOnClickListener(this);
         screen_homePage.setOnClickListener(this);
-
+        determin.setOnClickListener(this);
         share = getShare();
 
     }
@@ -346,7 +347,11 @@ public class HomeActivity extends BaseActivity {
                 break;
             case R.id.is_sure:
                 break;
-
+            case R.id.determin:
+                shaixuan_homePage.setVisibility( View.GONE );
+                img3.setBackgroundResource( R.mipmap.down_arrow );
+                aBoolean2 = true;
+                break;
         }
     }
 
