@@ -84,6 +84,7 @@
                     <ImageView
                         android:id="@+id/img1"
 
+
                         android:layout_width="40px"
                         android:layout_height="40px"
                         android:layout_gravity="center"
