@@ -12,9 +12,7 @@ public class NeedActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
     }
-
     @Override
     protected void initview() {
         //返回按钮

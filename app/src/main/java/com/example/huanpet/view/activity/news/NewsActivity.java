@@ -28,8 +28,6 @@ public class NewsActivity extends BaseActivity {
         showUser(false);
 
         news = findViewById(R.id.rv_news);
-
-
     }
 
     @Override

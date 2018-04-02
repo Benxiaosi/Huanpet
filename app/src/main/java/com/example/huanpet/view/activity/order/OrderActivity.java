@@ -57,7 +57,6 @@ public class OrderActivity extends BaseActivity {
         showSouText(false);
         showMap(false);
         showUser(false);
-
         initView();
     }
 

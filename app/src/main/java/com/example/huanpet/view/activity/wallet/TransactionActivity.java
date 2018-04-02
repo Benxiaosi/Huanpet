@@ -33,7 +33,6 @@ public class TransactionActivity extends BaseActivity {
     private TextView dsns;
     private TextView dsns1;
 
-
     @Override
     protected void initData() {
 

@@ -39,7 +39,6 @@ public class WalletActivity extends BaseActivity implements View.OnClickListener
 
         initView();
     }
-
     @Override
     public int getlayoutID() {
         return R.layout.activity_wallet;
