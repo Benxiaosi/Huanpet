@@ -1,6 +1,7 @@
 package com.example.huanpet.view.activity.home;
 
 
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -29,6 +30,7 @@ import com.example.huanpet.utils.OkHttpUtls;
 import com.example.huanpet.view.ILoginView;
 import com.example.huanpet.view.activity.screen.ScreenActivity;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,6 +58,7 @@ import com.example.huanpet.view.activity.pet.PetActivity;
 import com.example.huanpet.view.activity.setting.SettingActivity;
 import com.example.huanpet.view.activity.user.UserActivity;
 import com.example.huanpet.view.activity.wallet.WalletActivity;
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -119,6 +122,7 @@ public class HomeActivity extends BaseActivity {
     private Button is_sure;
     private TextView choice;
     private PopupWindow window1;
+    private List<UserDao> daos;
 
 
     @Override
@@ -161,7 +165,6 @@ public class HomeActivity extends BaseActivity {
         share = getShare();
         user_img = findViewById(R.id.user_img);
         user_name = findViewById(R.id.user_name);
-        user_img = findViewById(R.id.user_img);
         user_phone = findViewById(R.id.user_phone);
         user_enter = findViewById(R.id.user_enter);
         login = findViewById(R.id.login);
@@ -376,6 +379,7 @@ public class HomeActivity extends BaseActivity {
 
         lin = (LinearLayout) inflate.findViewById(R.id.lin);
         recy_home_Page1 = (RecyclerView) inflate.findViewById(R.id.recy_home_Page);
+        city.setText(share.getString("city", "北京"));
         if (window != null) {
             window.dismiss();
         }
@@ -405,6 +409,7 @@ public class HomeActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 200 && resultCode == 100) {
             city.setText(data.getStringExtra("city"));
+            editor.putString("city", data.getStringExtra("city")).commit();
         }
     }
 
@@ -418,10 +423,19 @@ public class HomeActivity extends BaseActivity {
     protected void onStart() {
         super.onStart();
         if (share.getBoolean("isLogin", false)) {
-            List<UserDao> daos = MyAppAlication.getMyApp().getDaoSession().getUserDaoDao().loadAll();
+            daos = MyAppAlication.getMyApp().getDaoSession().getUserDaoDao().loadAll();
             UserDao dao = daos.get(0);
-            int anInt = Integer.parseInt(dao.getImg());
-            user_img.setImageResource(anInt);
+            String img = dao.getImg();
+            String usernumber = dao.getUsernumber();
+            Log.e("onStart: ", img+"----------------");
+            Log.e("onStart: ", usernumber+"---------");
+            if (img == null && usernumber != null) {
+                Picasso.with(this).load(new File(usernumber)).into(user_img);
+            } else if (img != null && usernumber == null) {
+                Picasso.with(this).load(Uri.parse(img)).into(user_img);
+            } else if (img == null && usernumber == null){
+                user_img.setImageResource(R.mipmap.login_qq);
+            }
             user_name.setText(dao.getUsername());
             user_phone.setVisibility(View.VISIBLE);
             user_phone.setText(dao.getPhone());

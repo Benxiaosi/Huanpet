@@ -46,7 +46,6 @@ public class LoginActivity extends BaseActivity {
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                     dao.setUsername("李二狗子");
                     dao.setPhone(getUserName());
-                    dao.setImg(R.mipmap.login_qq+"");
                     MyAppAlication.getMyApp().getDaoSession().getUserDaoDao().insert(dao);
                     getEditor().putBoolean("isLogin", true).commit();
                     finish();

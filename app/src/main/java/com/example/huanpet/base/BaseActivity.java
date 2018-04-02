@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
@@ -97,13 +98,14 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                String text = getText();
+                setTitleToShare(text);
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                String text = getText();
-                setTitleToShare(text);
+
+
             }
         });
     }

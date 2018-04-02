@@ -1,5 +1,7 @@
 package com.example.huanpet.model.greendao;
 
+import android.net.Uri;
+
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
@@ -15,7 +17,16 @@ public class UserDao {
     private String phone;
     private String usernumber;
     private String img;
+
+    public UserDao(String username, String phone, String usernumber, String img) {
+        this.username = username;
+        this.phone = phone;
+        this.usernumber = usernumber;
+        this.img = img;
+    }
+
     @Generated(hash = 959380326)
+
     public UserDao(Long id, String username, String phone, String usernumber,
             String img) {
         this.id = id;
@@ -27,15 +38,6 @@ public class UserDao {
     @Generated(hash = 917059161)
     public UserDao() {
     }
-
-    public UserDao(String username, String phone, String usernumber, String img) {
-
-        this.username = username;
-        this.phone = phone;
-        this.usernumber = usernumber;
-        this.img = img;
-    }
-
     public Long getId() {
         return this.id;
     }
@@ -66,6 +68,7 @@ public class UserDao {
     public void setImg(String img) {
         this.img = img;
     }
+  
 
 
 }

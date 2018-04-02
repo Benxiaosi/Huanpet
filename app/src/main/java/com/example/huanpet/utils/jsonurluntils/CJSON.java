@@ -152,7 +152,6 @@ public class CJSON {
                     public void onResponse(Call call, Response response) throws IOException {
                         handler.obtainMessage(0, response.body().string()).sendToTarget();
 
-
                     }
                 });
             }
