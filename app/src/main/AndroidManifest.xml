@@ -23,8 +23,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
     <!--用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-    <!--用于访问网络，网络定位需要上网-->
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <!--用于读取手机当前的状态-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
     <!--用于写入缓存数据到扩展存储卡-->
@@ -34,6 +32,7 @@
     <!--用于申请获取蓝牙信息进行室内定位-->
     <uses-permission android:name="android.permission.BLUETOOTH"></uses-permission>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
+
 
     <application
         android:name=".app.MyAppAlication"
@@ -59,16 +58,17 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="6c5df883e927ab4d7c52cec469139cfc">
-            //开发者申请的key</meta-data>
+        </meta-data>
 
         <activity android:name=".view.activity.need.NeedActivity" />
         <activity android:name=".view.activity.news.NewsActivity" />
         <activity android:name=".view.activity.order.OrderActivity" />
-        <activity android:name=".view.activity.pet.PetActivity" />
+        <activity android:name=".view.activity.pet.PetActivity"/>
         <activity android:name=".view.activity.setting.SettingActivity" />
         <activity android:name=".view.activity.wallet.WalletActivity" />
         <activity android:name=".view.activity.login.LoginActivity" />
         <activity android:name=".view.activity.user.UserActivity" />
         <activity android:name=".view.activity.login.RegistActivity"></activity>
+
     </application>
 </manifest>

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -9,8 +10,15 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
+        stage {
+            //...
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -22,6 +30,8 @@ android {
         daoPackage 'com.example.huanpet.model.bean' //dao的包名，包名默认是entity所在的包；
         targetGenDir 'src/main/java'//生成数据库文件的目录
     }
+
+
 }
 
 dependencies {
@@ -41,9 +51,7 @@ dependencies {
     compile 'com.amap.api:location:latest.integration'
     //搜索功能
     compile 'com.amap.api:search:latest.integration'
-
     implementation 'com.android.support:design:26.1.0'
-
     compile files('libs/pinyin4j-2.5.0.jar')
 
 

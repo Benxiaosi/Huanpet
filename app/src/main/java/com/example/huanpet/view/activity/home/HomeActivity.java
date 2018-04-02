@@ -22,7 +22,9 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.huanpet.R;
+import com.example.huanpet.app.MyAppAlication;
 import com.example.huanpet.base.BaseActivity;
+import com.example.huanpet.model.greendao.UserDao;
 import com.example.huanpet.utils.OkHttpUtls;
 import com.example.huanpet.view.ILoginView;
 import com.example.huanpet.view.activity.screen.ScreenActivity;
@@ -180,6 +182,7 @@ public class HomeActivity extends BaseActivity {
         order.setOnClickListener(this);
         city = findViewById(R.id.location);
 
+
         recy_home_Page = (RecyclerView) findViewById(R.id.recy_home_Page);
 
         nearby_homePage = (TextView) findViewById(R.id.nearby_homePage);
@@ -197,6 +200,7 @@ public class HomeActivity extends BaseActivity {
         animal_homePage.setOnClickListener(this);
         screen_homePage.setOnClickListener(this);
         share = getShare();
+
     }
 
     @Override
@@ -260,29 +264,10 @@ public class HomeActivity extends BaseActivity {
                 break;
             case R.id.is_sure:
                 break;
+
         }
     }
 
-    public void getURL() {
-        Map<String, String> headMap = new HashMap<>();
-        Map<String, String> bodyMap = new HashMap<>();
-        headMap.put("channel", "android");
-        headMap.put("ip", "172.28.119.4");
-        headMap.put("sign", "B2754A38A5D5027F49424934A8DF5752");
-        headMap.put("token", "96F65F14C026230FD1D097C435964E0E");
-
-        bodyMap.put("beginIndex", "0");
-        bodyMap.put("endIndex", "10");
-
-        bodyMap.put("orderBy", near[0]);
-
-        bodyMap.put("coordX", share.getString("latitude", "39.92"));
-        bodyMap.put("coordY", share.getString("longitude", "116.46"));
-
-        OkHttpUtls.getInstance().getOk(url, headMap, bodyMap);
-
-
-    }
 
     public void animalJT() {
         if (window != null) {
@@ -420,6 +405,30 @@ public class HomeActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 200 && resultCode == 100) {
             city.setText(data.getStringExtra("city"));
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (share.getBoolean("isLogin", false)) {
+            List<UserDao> daos = MyAppAlication.getMyApp().getDaoSession().getUserDaoDao().loadAll();
+            UserDao dao = daos.get(0);
+            int anInt = Integer.parseInt(dao.getImg());
+            user_img.setImageResource(anInt);
+            user_name.setText(dao.getUsername());
+            user_phone.setVisibility(View.VISIBLE);
+            user_phone.setText(dao.getPhone());
+        } else {
+            user_name.setText("点击登录");
+            user_phone.setVisibility(View.GONE);
+            user_img.setImageResource(R.mipmap.ic_launcher);
         }
     }
 }

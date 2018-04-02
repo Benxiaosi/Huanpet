@@ -29,7 +29,9 @@ import com.amap.api.services.geocoder.GeocodeResult;
 import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeResult;
 import com.example.huanpet.R;
+import com.example.huanpet.utils.mapdemo.ToastUtil;
 import com.example.huanpet.view.activity.map.MapActivity;
+
 
 /**
  * Created by Administrator on 2018/3/2.
@@ -56,7 +58,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         //设置标题栏
         setUpView();
-
         setContentView(getlayoutID());
 
         //设置屏幕适配
@@ -353,7 +354,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
 
-
     //弹出侧滑菜单方法
     protected abstract void intentUser();
 
@@ -361,4 +361,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public void setBackGround(int drawable) {
         base_lin.setBackgroundResource(drawable);
     }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        //用完回调要注销掉，否则可能会出现内存泄露
+
+    }
+
+
 }
