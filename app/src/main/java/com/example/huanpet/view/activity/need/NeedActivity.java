@@ -23,7 +23,6 @@ public class NeedActivity extends BaseActivity {
         showSouText(false);
         showMap(false);
         showUser(false);
-
         need = findViewById(R.id.rv_need);
 
     }
