@@ -57,7 +57,6 @@ public class UserDaoDao extends AbstractDao<UserDao, Long> {
         db.execSQL(sql);
     }
 
-
     @Override
     protected final void bindValues(DatabaseStatement stmt, UserDao entity) {
         stmt.clearBindings();
