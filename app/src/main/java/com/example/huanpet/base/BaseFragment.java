@@ -1,32 +1,32 @@
 package com.example.huanpet.base;
 
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.huanpet.R;
-
 /**
- * A simple {@link Fragment} subclass.
+ * Created by 何启明 on 2018/4/2.
  */
+
 public abstract class BaseFragment extends Fragment {
-
-
-
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(getFragmentId(), container, false);
-        initView(view);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View inflate = inflater.inflate(getview(), container, false);
+
+        initView(inflate);
+
         initData();
-        return view;
+        return inflate;
+
+
     }
-    abstract void initView(View vi);
-    abstract void initData();
-    public abstract  int getFragmentId() ;
+
+    protected abstract void initData();
+
+    protected abstract void initView(View view);
+
+    public abstract int getview();
 }

@@ -16,6 +16,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -27,6 +28,7 @@ import com.example.huanpet.view.activity.home.HomeActivity;
 import com.example.huanpet.view.adapter.PageAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AnimationActivity extends AppCompatActivity {
 
@@ -34,6 +36,7 @@ public class AnimationActivity extends AppCompatActivity {
     private ViewPager vp_animation;
     private SharedPreferences share;
     private SharedPreferences.Editor editor;
+    private List<String> permissionList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,27 +47,45 @@ public class AnimationActivity extends AppCompatActivity {
         initData();
 
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-
-        if (requestCode == 0){
-            //由于只有一个权限 所以这边可以直接获取第一个就好了
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                //被用户允许  进行下一步
-                editor.putBoolean("isShow", false).commit();
-                startActivity(new Intent(AnimationActivity.this, HomeActivity.class));
-                finish();
-            }else{
-                //被用户拒绝  进行后续逻辑
-                //如 打开软件设置让用户自己设置
-                Intent intent = new Intent();
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent.setData(Uri.fromParts("package", getPackageName(), null));
-                startActivity(intent);
-            }
+        switch (requestCode) {
+            case 0:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    //被用户允许  进行下一步
+                    editor.putBoolean("isShow", false).commit();
+                    startActivity(new Intent(AnimationActivity.this, HomeActivity.class));
+                    finish();
+                } else {
+                    //被用户拒绝  进行后续逻辑
+                    //如 打开软件设置让用户自己设置
+                    Intent intent = new Intent();
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                    intent.setData(Uri.fromParts("package", getPackageName(), null));
+                    startActivity(intent);
+                }
+                break;
+            case 1:
+                if (grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    //被用户允许  进行下一步
+                    editor.putBoolean("isShow", false).commit();
+                    startActivity(new Intent(AnimationActivity.this, HomeActivity.class));
+                    finish();
+                } else {
+                    //被用户拒绝  进行后续逻辑
+                    //如 打开软件设置让用户自己设置
+                    Intent intent = new Intent();
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                    intent.setData(Uri.fromParts("package", getPackageName(), null));
+                    startActivity(intent);
+                }
+                break;
         }
+
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
@@ -83,13 +104,24 @@ public class AnimationActivity extends AppCompatActivity {
             img.add(view3);
             PageAdapter adapter = new PageAdapter(img);
             vp_animation.setAdapter(adapter);
+            permissionList = new ArrayList<>();
             view3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(ActivityCompat.checkSelfPermission(AnimationActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION )
-                            != PackageManager.PERMISSION_GRANTED){
-                        ActivityCompat.requestPermissions(AnimationActivity.this,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION },0);
-                    }else{
+                    if (ActivityCompat.checkSelfPermission(AnimationActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                            != PackageManager.PERMISSION_GRANTED) {
+                        permissionList.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+                    }
+
+                    if (ContextCompat.checkSelfPermission(AnimationActivity.this, Manifest.permission.CALL_PHONE) !=
+                            PackageManager.PERMISSION_GRANTED) {
+                        permissionList.add(Manifest.permission.CALL_PHONE);
+                    }
+                    if (!permissionList.isEmpty()) {
+                        String[] permissions = permissionList.toArray(new String[permissionList.size()]);
+                        ActivityCompat.requestPermissions(AnimationActivity.this,
+                                permissions, 1);
+                    } else {
                         //权限以获取 进行下一步
                         editor.putBoolean("isShow", false).commit();
                         startActivity(new Intent(AnimationActivity.this, HomeActivity.class));
