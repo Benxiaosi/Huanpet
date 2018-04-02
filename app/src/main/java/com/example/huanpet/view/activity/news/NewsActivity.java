@@ -30,6 +30,7 @@ public class NewsActivity extends BaseActivity {
         news = findViewById(R.id.rv_news);
     }
 
+
     @Override
     public int getlayoutID() {
         return R.layout.activity_news;
