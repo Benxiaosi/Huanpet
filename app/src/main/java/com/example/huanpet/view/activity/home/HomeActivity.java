@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -24,6 +25,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.huanpet.R;
+import com.example.huanpet.app.MyAppAlication;
 import com.example.huanpet.base.BaseActivity;
 import com.example.huanpet.utils.jsonurluntils.CJSON;
 import com.example.huanpet.view.activity.home.adapter.HomeAnimalRecyAdapter;
@@ -31,8 +33,14 @@ import com.example.huanpet.view.activity.home.adapter.HomeListAdapter;
 import com.example.huanpet.view.activity.home.adapter.HomePageRecyAdapter;
 import com.example.huanpet.view.activity.home.bean.AnimalBean;
 import com.example.huanpet.view.activity.home.bean.MyBean;
+
+import com.example.huanpet.model.greendao.UserDao;
+import com.example.huanpet.utils.OkHttpUtls;
+import com.example.huanpet.view.ILoginView;
+
 import com.example.huanpet.view.activity.screen.ScreenActivity;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,6 +58,7 @@ import com.example.huanpet.view.activity.pet.PetActivity;
 import com.example.huanpet.view.activity.setting.SettingActivity;
 import com.example.huanpet.view.activity.user.UserActivity;
 import com.example.huanpet.view.activity.wallet.WalletActivity;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -117,6 +126,7 @@ public class HomeActivity extends BaseActivity {
     private Button is_sure;
     private TextView choice;
     private PopupWindow window1;
+    private List<UserDao> daos;
 
     @SuppressLint("HandlerLeak")
     private Handler han = new Handler() {
@@ -231,7 +241,48 @@ public class HomeActivity extends BaseActivity {
         nearby_homePage.setOnClickListener( this );
         animal_homePage.setOnClickListener( this );
         screen_homePage.setOnClickListener( this );
+        user_img = findViewById(R.id.user_img);
+        user_name = findViewById(R.id.user_name);
+        user_phone = findViewById(R.id.user_phone);
+        user_enter = findViewById(R.id.user_enter);
+        login = findViewById(R.id.login);
+        news = findViewById(R.id.news);
+        pet = findViewById(R.id.pet);
+        order = findViewById(R.id.order);
+        wallet = findViewById(R.id.wallet);
+        need = findViewById(R.id.need);
+        setting = findViewById(R.id.setting);
+        is_sure = findViewById(R.id.is_sure);
+        login.setOnClickListener(this);
+        pet.setOnClickListener(this);
+        wallet.setOnClickListener(this);
+        need.setOnClickListener(this);
+        setting.setOnClickListener(this);
+        is_sure.setOnClickListener(this);
+        news.setOnClickListener(this);
+        order.setOnClickListener(this);
+        city = findViewById(R.id.location);
+
+
+        recy_home_Page = (RecyclerView) findViewById(R.id.recy_home_Page);
+
+        nearby_homePage = (TextView) findViewById(R.id.nearby_homePage);
+        animal_homePage = (TextView) findViewById(R.id.animal_homePage);
+        screen_homePage = (TextView) findViewById(R.id.screen_homePage);
+        img1 = (ImageView) findViewById(R.id.img1);
+        img2 = (ImageView) findViewById(R.id.img2);
+        img3 = (ImageView) findViewById(R.id.img3);
+
+        shaixuan_homePage = (LinearLayout) findViewById(R.id.shaixuan_homePage);
+        choice = (TextView) findViewById(R.id.choice);
+
+        choice.setOnClickListener(this);
+        nearby_homePage.setOnClickListener(this);
+        animal_homePage.setOnClickListener(this);
+        screen_homePage.setOnClickListener(this);
+
         share = getShare();
+
     }
 
     @Override
@@ -296,8 +347,10 @@ public class HomeActivity extends BaseActivity {
                 break;
             case R.id.is_sure:
                 break;
+
         }
     }
+
 
     public void getURL(String nan) {
         Map<String, Object> bodyMap = new HashMap<>();
@@ -363,7 +416,6 @@ public class HomeActivity extends BaseActivity {
             e.printStackTrace();
         }
     }
-
     public void animalJT() {
         if (window != null) {
             window.dismiss();
@@ -484,8 +536,9 @@ public class HomeActivity extends BaseActivity {
 
     public void shaixuanJT() {
         View inflate = LayoutInflater.from( HomeActivity.this ).inflate( R.layout.item2_recy, null );
-
-        lin = (LinearLayout) inflate.findViewById( R.id.lin );
+        lin = (LinearLayout) inflate.findViewById(R.id.lin);
+        recy_home_Page1 = (RecyclerView) inflate.findViewById(R.id.recy_home_Page);
+        city.setText(share.getString("city", "北京"));
         if (window != null) {
             window.dismiss();
         }
@@ -514,8 +567,41 @@ public class HomeActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult( requestCode, resultCode, data );
         if (requestCode == 200 && resultCode == 100) {
-            city.setText( data.getStringExtra( "city" ) );
+            city.setText(data.getStringExtra("city"));
+            editor.putString("city", data.getStringExtra("city")).commit();
+        }
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (share.getBoolean("isLogin", false)) {
+            daos = MyAppAlication.getMyApp().getDaoSession().getUserDaoDao().loadAll();
+            UserDao dao = daos.get(0);
+            String img = dao.getImg();
+            String usernumber = dao.getUsernumber();
+            Log.e("onStart: ", img+"----------------");
+            Log.e("onStart: ", usernumber+"---------");
+            if (img == null && usernumber != null) {
+                Picasso.with(this).load(new File(usernumber)).into(user_img);
+            } else if (img != null && usernumber == null) {
+                Picasso.with(this).load(Uri.parse(img)).into(user_img);
+            } else if (img == null && usernumber == null){
+                user_img.setImageResource(R.mipmap.login_qq);
+            }
+            user_name.setText(dao.getUsername());
+            user_phone.setVisibility(View.VISIBLE);
+            user_phone.setText(dao.getPhone());
+        } else {
+            user_name.setText("点击登录");
+            user_phone.setVisibility(View.GONE);
+            user_img.setImageResource(R.mipmap.ic_launcher);
         }
     }
 }

@@ -32,7 +32,7 @@ public class Screen {
     public String getDir(boolean portrait) {
 // landscape是横向，portrait是纵向
         if (portrait) {
-            return String.format("values-%dx%d", height, width);
+            return String.format("values.values-%dx%d", height, width);
         } else {
             return String.format("values-land-%dx%d", height, width);
         }

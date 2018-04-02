@@ -28,7 +28,7 @@ public class UserDaoDao extends AbstractDao<UserDao, Long> {
         public final static Property Username = new Property(1, String.class, "username", false, "USERNAME");
         public final static Property Phone = new Property(2, String.class, "phone", false, "PHONE");
         public final static Property Usernumber = new Property(3, String.class, "usernumber", false, "USERNUMBER");
-        public final static Property IsFoster = new Property(4, Boolean.class, "isFoster", false, "IS_FOSTER");
+        public final static Property Img = new Property(4, String.class, "img", false, "IMG");
     }
 
 
@@ -48,7 +48,7 @@ public class UserDaoDao extends AbstractDao<UserDao, Long> {
                 "\"USERNAME\" TEXT," + // 1: username
                 "\"PHONE\" TEXT," + // 2: phone
                 "\"USERNUMBER\" TEXT," + // 3: usernumber
-                "\"IS_FOSTER\" INTEGER);"); // 4: isFoster
+                "\"IMG\" TEXT);"); // 4: img
     }
 
     /** Drops the underlying database table. */
@@ -81,9 +81,9 @@ public class UserDaoDao extends AbstractDao<UserDao, Long> {
             stmt.bindString(4, usernumber);
         }
  
-        Boolean isFoster = entity.getIsFoster();
-        if (isFoster != null) {
-            stmt.bindLong(5, isFoster ? 1L: 0L);
+        String img = entity.getImg();
+        if (img != null) {
+            stmt.bindString(5, img);
         }
     }
 
@@ -111,9 +111,9 @@ public class UserDaoDao extends AbstractDao<UserDao, Long> {
             stmt.bindString(4, usernumber);
         }
  
-        Boolean isFoster = entity.getIsFoster();
-        if (isFoster != null) {
-            stmt.bindLong(5, isFoster ? 1L: 0L);
+        String img = entity.getImg();
+        if (img != null) {
+            stmt.bindString(5, img);
         }
     }
 
@@ -129,7 +129,7 @@ public class UserDaoDao extends AbstractDao<UserDao, Long> {
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // username
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // phone
             cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // usernumber
-            cursor.isNull(offset + 4) ? null : cursor.getShort(offset + 4) != 0 // isFoster
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // img
         );
         return entity;
     }
@@ -140,7 +140,7 @@ public class UserDaoDao extends AbstractDao<UserDao, Long> {
         entity.setUsername(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setPhone(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setUsernumber(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setIsFoster(cursor.isNull(offset + 4) ? null : cursor.getShort(offset + 4) != 0);
+        entity.setImg(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
      }
     
     @Override
