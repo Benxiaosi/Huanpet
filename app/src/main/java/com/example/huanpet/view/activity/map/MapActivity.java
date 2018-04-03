@@ -85,7 +85,7 @@ public class MapActivity extends BaseActivity implements LocationSource, AMapLoc
         showBack(true);
         showTitle(true);
         setTitle("城市选择");
-        showDetermine(true);
+        showDetermine(false);
         showSouText(false);
         showMap(false);
         showUser(false);
@@ -103,10 +103,6 @@ public class MapActivity extends BaseActivity implements LocationSource, AMapLoc
     protected void doDetermine() {
 
 
-        if (!TextUtils.isEmpty(buffer.toString())) {
-            setTitleToShare(buffer.toString());
-            finish();
-        }
 
 
     }
@@ -185,7 +181,9 @@ public class MapActivity extends BaseActivity implements LocationSource, AMapLoc
                     buffer.append(amapLocation.getCountry() + "" + amapLocation.getProvince() + "" + amapLocation.getCity() + "" + amapLocation.getProvince() + "" + amapLocation.getDistrict() + "" + amapLocation.getStreet() + "" + amapLocation.getStreetNum());
                     Toast.makeText(getApplicationContext(), buffer.toString(), Toast.LENGTH_LONG).show();
                     isFirstLoc = false;
-
+                    if (!TextUtils.isEmpty(buffer.toString())) {
+                        setTitleToShare(buffer.toString());
+                    }
 
                 }
 

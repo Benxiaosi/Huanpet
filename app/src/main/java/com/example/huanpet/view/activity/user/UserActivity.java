@@ -2,12 +2,16 @@ package com.example.huanpet.view.activity.user;
 
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -142,11 +146,19 @@ public class UserActivity extends BaseActivity {
             public void onClick(View v) {
                 i++;
                 path1 = getExternalCacheDir().getAbsolutePath() + File.separator + "imga" + i + ".png";
-                Intent intent2 = new Intent();
-                intent2.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-//                向意图对象当中，传入指定的路径
-                intent2.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(path1)));
-                startActivityForResult(intent2, 300);
+//                intent2.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+////                向意图对象当中，传入指定的路径
+//                intent2.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(path1)));
+//                startActivityForResult(intent2, 300);
+                File file = new File(path1);
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT,
+                            FileProvider.getUriForFile(UserActivity.this,"com.example.huanpet.fileprovider", file));
+                }else {
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
+                }
+                startActivityForResult(intent, 300);
                 window.dismiss();
             }
         });
