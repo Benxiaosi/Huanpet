@@ -1,5 +1,7 @@
 package com.example.huanpet.presenter;
 
+import android.content.Context;
+
 import java.util.Map;
 
 /**
@@ -7,5 +9,5 @@ import java.util.Map;
  */
 
 public interface Persenter {
-    void login(String url, Map<String,String> map);
+    void login(Context con, String url, Map<String,Object> map);
 }

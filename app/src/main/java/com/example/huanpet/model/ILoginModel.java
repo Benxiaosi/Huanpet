@@ -2,6 +2,8 @@ package com.example.huanpet.model;
 
 
 
+import android.content.Context;
+
 import com.example.huanpet.model.net.NetWorkCallBack;
 
 import java.util.Map;
@@ -15,6 +17,6 @@ public interface ILoginModel {
  void  saveUserInfo(Object userInfo);
 
 
- <T> void   Login(String url, Map<String, String> map, NetWorkCallBack<T> callBack);
+  void   Login(Context con,String url, Map<String, Object> map, NetWorkCallBack callBack);
 
 }

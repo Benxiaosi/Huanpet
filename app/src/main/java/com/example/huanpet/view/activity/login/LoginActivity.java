@@ -18,8 +18,10 @@ import com.example.huanpet.R;
 import com.example.huanpet.app.MyAppAlication;
 import com.example.huanpet.base.BaseActivity;
 import com.example.huanpet.model.greendao.UserDao;
+import com.example.huanpet.presenter.PresenterInf;
 import com.example.huanpet.utils.jsonurluntils.CJSON;
 import com.example.huanpet.utils.jsonurluntils.Md5Encrypt;
+import com.example.huanpet.view.ILoginView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,37 +29,14 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements ILoginView{
     private EditText unser_number;
     private EditText user_password;
     private TextView user_format;
     private Button bt_login;
     private LinearLayout login_QQ;
     private LinearLayout login_Chat;
-    Handler mHandler = new Handler(new Handler.Callback() {
-        @Override
-        public boolean handleMessage(Message msg) {
-            String data = (String) msg.obj;
-            try {
-                JSONObject object = new JSONObject(data);
-                Log.e("handleMessage: ", data);
-                if (object.getBoolean("ret")) {
-                    UserDao dao = new UserDao();
-                    Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-                    dao.setUsername("李二狗子");
-                    dao.setPhone(getUserName());
-                    MyAppAlication.getMyApp().getDaoSession().getUserDaoDao().insert(dao);
-                    getEditor().putBoolean("isLogin", true).commit();
-                    finish();
-                } else {
-                    Toast.makeText(LoginActivity.this, object.getString("desc"), Toast.LENGTH_SHORT).show();
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return true;
-        }
-    });
+
 
     @Override
     protected void initData() {
@@ -114,13 +93,13 @@ public class LoginActivity extends BaseActivity {
                 Map<String, Object> param = new HashMap<>();
                 param.put("userName", "666");
                 param.put("password", Md5Encrypt.md5("123456", "UTF-8"));
-                CJSON.getData(this, "user/login.jhtml", param, mHandler);
+                new PresenterInf(this).login(this,"user/login.jhtml", param);
                 break;
             case R.id.login_Chat:
                 Map<String, Object> param1 = new HashMap<>();
                 param1.put("userName", "666");
                 param1.put("password", Md5Encrypt.md5("123456", "UTF-8"));
-                CJSON.getData(this, "user/login.jhtml", param1, mHandler);
+                new PresenterInf(this).login(this,"user/login.jhtml", param1);
                 break;
             case R.id.user_format:
 
@@ -155,8 +134,24 @@ public class LoginActivity extends BaseActivity {
         Map<String, Object> param = new HashMap<>();
         param.put("userName", getUserName());
         param.put("password", Md5Encrypt.md5(getUserPassword() + "1", "UTF-8"));
-        CJSON.getData(this, "user/login.jhtml", param, mHandler);
+        new PresenterInf(this).login(this,"user/login.jhtml", param);
+
     }
 
 
+    @Override
+    public void LoginSuccess(String data) {
+        UserDao dao = new UserDao();
+        Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+        dao.setUsername("李二狗子");
+        dao.setPhone(getUserName());
+        MyAppAlication.getMyApp().getDaoSession().getUserDaoDao().insert(dao);
+        getEditor().putBoolean("isLogin", true).commit();
+        finish();
+    }
+
+    @Override
+    public void LoginFailure(String err) {
+        Toast.makeText(LoginActivity.this, err, Toast.LENGTH_SHORT).show();
+    }
 }

@@ -7,21 +7,13 @@ package com.example.huanpet.view;
 public interface ILoginView {
 
 
-    void LoginSuccess(Object obj);
+    void LoginSuccess(String data);
 
-    void LoginFailure();
+    void LoginFailure(String err);
 
-   String  getUserName();
 
-    String getPassWord();
 
-//    登录按钮
-   void login();
 
-//    显示进度条
-    void showPop();
-//关闭进度条
-    void dissPop();
 
 
 

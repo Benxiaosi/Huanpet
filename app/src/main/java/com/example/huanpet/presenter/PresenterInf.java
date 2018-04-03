@@ -1,6 +1,8 @@
 package com.example.huanpet.presenter;
 
 
+import android.content.Context;
+
 import com.example.huanpet.model.ILoginModel;
 import com.example.huanpet.model.Model;
 import com.example.huanpet.model.net.NetWorkCallBack;
@@ -25,15 +27,15 @@ public class PresenterInf implements Persenter{
         iLoginModel = new Model();
     }
     @Override
-    public void login(String url, Map<String,String> map){
+    public void login(Context con, String url, Map<String,Object> map){
 
-    iLoginModel.Login(url, map, new NetWorkCallBack<Object>() {
+    iLoginModel.Login(con,url, map, new NetWorkCallBack() {
         @Override
         public void onError(String error) {
-            loginView.LoginFailure();
+            loginView.LoginFailure(error);
         }
         @Override
-        public void onSuccess(Object obj) {
+        public void onSuccess(String obj) {
 
             loginView.LoginSuccess(obj);
         }

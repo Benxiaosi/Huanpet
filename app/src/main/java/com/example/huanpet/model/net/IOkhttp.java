@@ -9,8 +9,8 @@ import java.util.Map;
 public interface  IOkhttp {
 
 
-   <T> void get(String url, Map<String, String> map, NetWorkCallBack<T> callback);
+    void get(String url, Map<String, String> map, NetWorkCallBack callback);
 
-    <T> void post(String url, Map<String, String> map, NetWorkCallBack<T> callback);
+     void post(String url, Map<String, String> map, NetWorkCallBack callback);
 
 }
